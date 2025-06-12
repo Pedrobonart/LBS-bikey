@@ -21,14 +21,22 @@ stations_df = get_stations_data()
 stations_df = stations_df[~stations_df["place_name"].str.startswith("BIKE")]
 
 #Header
-st.title("Vienna Bike Sharing Dashboard")
-st.subheader("An interactive analysis of the WienMobil Rad system")
+with st.container():
+    st.markdown(
+        """
+        <div style="background-color:#f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 20px">
+            <h1 style="color:#2C3E50;">🚲 Vienna Bike Sharing Dashboard</h1>
+            <h4 style="color:#7f8c8d;">An interactive analysis of the WienMobil Rad system</h4>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 # --- Sidebar Navigation ---
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Introduction", "Statistics", "Analysis", "Conclusion"])
 
-if page == "introduction":
+if page == "Introduction":
     st.header("Introduction")
     st.write("This map shows the current locations of all bike stations in Vienna.")
     # create map
