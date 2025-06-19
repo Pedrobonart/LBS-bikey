@@ -43,11 +43,11 @@ page = st.sidebar.radio("Go to", ["Introduction", "Statistics", "Analysis", "Con
 
 if page == "Introduction":
     st.header("Introduction")
-    st.write("
+    st.write("""
     This project is about rental bikes in Vienna, more precisely the Nextbike WienMobil system. 
     There are 254 bike stations all across the city, where people can rent bikes and drive to other stations by themselves.
     This map shows the current locations of all bike stations in Vienna.
-    ")
+    """)
     # create map
     map_center = [stations_df["lat"].mean(), stations_df["long"].mean()]
     bike_map = folium.Map(location=map_center, zoom_start=13)
