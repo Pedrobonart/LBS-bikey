@@ -85,8 +85,8 @@ elif page == "Analysis":
     st.write("Visualizations like maps, usage heatmaps, movement flows etc.")
 st.title("GeoJSON Viewer with SLD Styling")
 
-    geojson_path = "/mnt/data/agg_dur_traj (1).geojson"
-    sld_path = "/mnt/data/test1.sld"
+    geojson_path = "data/agg_dur_traj (1).geojson"
+    sld_path = "data/test1.sld"
 
     gdf = load_geojson(geojson_path)
     sld_styles = parse_sld_styles(sld_path)
