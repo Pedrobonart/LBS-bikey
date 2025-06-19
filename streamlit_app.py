@@ -53,7 +53,7 @@ if page == "Introduction":
     st.header("Introduction")
 
     # Create a 3-column layout
-    col1, col2, col3 = st.columns([2, 3, 2])  # Adjust ratio as needed
+    col1, col2, col3 = st.columns([2, 3, 1])  # Adjust ratio as needed
 
     with col1:
         st.markdown("### About the Project")
@@ -93,7 +93,7 @@ elif page == "Analysis: Trajectories":
     st.header("In-depth Analysis")
 
     # Define a three-column layout
-    col1, col2, col3 = st.columns([1.5, 3, 1.5])  # Adjust proportions as needed
+    col1, col2, col3 = st.columns([1.5, 3, 1])  # Adjust proportions as needed
 
     with col1:
         st.markdown("### Movement Flow Map")
@@ -156,7 +156,7 @@ elif page == "Analysis: Trajectories":
             ).add_to(m)
 
         colormap.add_to(m)
-        st_folium(m, width=700, height=500)
+        st_folium(m, width=600, height=500)
 
     with col3:
         st.markdown("### Notes")
