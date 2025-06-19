@@ -104,7 +104,7 @@ elif page == "Analysis: Heatmap":
         This project is about rental bikes in Vienna.... THIS IS A TEMPLATE SECTION!!! 
         """)
 
-     with col2:
+    with col2:
         df = load_bike_trips()
 
         # Extrahiere Koordinaten von Start- und Zielpunkten
