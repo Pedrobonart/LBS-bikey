@@ -78,7 +78,7 @@ if page == "Introduction":
         - Source: [WienMobil Rad](https://www.wien.gv.at/english/transportation/bike/)
         - Data: scraped from the Nextbike API.
         """)
-        st.image("https://upload.wikimedia.org/wikipedia/commons/4/45/Nextbike_Bike-sharing_Bicycle_in_Berlin.jpg", caption="Example of a Nextbike bicycle", use_column_width=True)
+        st.image("https://upload.wikimedia.org/wikipedia/commons/4/45/Nextbike_Bike-sharing_Bicycle_in_Berlin.jpg", caption="Example of a Nextbike bicycle", use_container_width=True)
 
 
 elif page == "Analysis":
