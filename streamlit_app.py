@@ -4,6 +4,9 @@ import math
 from pathlib import Path
 import folium
 from streamlit_folium import st_folium
+import xml.etree.ElementTree as ET
+from matplotlib.colors import to_hex
+
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
@@ -15,6 +18,26 @@ st.set_page_config(
 def get_stations_data():
     DATA_FILENAME = Path(__file__).parent / 'data/bike_tracking_stations.csv'
     return pd.read_csv(DATA_FILENAME)
+
+@st.cache_data
+def load_geojson(path):
+    return gpd.read_file(path)
+
+@st.cache_data
+def parse_sld_styles(sld_path):
+    tree = ET.parse(sld_path)
+    root = tree.getroot()
+    ns = {'sld': 'http://www.opengis.net/sld',
+          'ogc': 'http://www.opengis.net/ogc',
+          'se': 'http://www.opengis.net/se'}
+
+    styles = {}
+    for rule in root.findall(".//sld:Rule", ns):
+        label = rule.find("sld:Name", ns).text
+        css_param = rule.find(".//sld:CssParameter[@name='fill']", ns)
+        if css_param is not None:
+            styles[label] = css_param.text
+    return styles
 
 # load & filter data
 stations_df = get_stations_data()
@@ -50,6 +73,44 @@ if page == "Introduction":
         ).add_to(bike_map)
     # show map
     st_folium(bike_map, width=700, height=500)
+
+# --- Style function for folium ---
+def style_function_factory(column, sld_styles):
+    def style_function(feature):
+        value = feature['properties'].get(column)
+        color = sld_styles.get(str(value), "#808080")  # default gray
+        return {
+            'fillColor': color,
+            'color': color,
+            'weight': 1,
+            'fillOpacity': 0.6
+        }
+    return style_function
+
+# --- App Layout ---
+st.title("GeoJSON Viewer with SLD Styling")
+
+geojson_path = "/mnt/data/agg_dur_traj (1).geojson"
+sld_path = "/mnt/data/test1.sld"
+
+gdf = load_geojson(geojson_path)
+sld_styles = parse_sld_styles(sld_path)
+
+column = st.selectbox("Choose the attribute for styling:", gdf.columns)
+
+# --- Create map ---
+center = [gdf.geometry.centroid.y.mean(), gdf.geometry.centroid.x.mean()]
+m = folium.Map(location=center, zoom_start=12)
+
+folium.GeoJson(
+    gdf.to_json(),
+    name="Styled Layer",
+    style_function=style_function_factory(column, sld_styles)
+).add_to(m)
+
+folium.LayerControl().add_to(m)
+st_folium(m, width=800, height=600)
+
 
 elif page == "Statistics":
     st.header("System Statistics")
