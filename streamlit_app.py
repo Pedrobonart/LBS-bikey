@@ -43,40 +43,43 @@ page = st.sidebar.radio("Go to", ["Introduction", "Statistics", "Analysis", "Con
 
 if page == "Introduction":
     st.header("Introduction")
-    st.write("""
-    This project is about rental bikes in Vienna, more precisely the Nextbike WienMobil system. 
-    There are 254 bike stations all across the city, where people can rent bikes and drive to other stations by themselves.
-    This map shows the current locations of all bike stations in Vienna.
-    """)
-    # create map
-    map_center = [stations_df["lat"].mean(), stations_df["long"].mean()]
-    bike_map = folium.Map(location=map_center, zoom_start=13)
-    for _, row in stations_df.iterrows():
-        folium.Marker(
-            location=[row["lat"], row["long"]],
-            popup=row["place_name"],
-            icon=folium.Icon(color="blue", icon="bicycle", prefix="fa")
-        ).add_to(bike_map)
-    # show map
-    st_folium(bike_map, width=700, height=500)
 
+    # Create a 3-column layout
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust ratio as needed
 
-elif page == "Statistics":
-   # Layout: 3-Spalten
-col1, col2, col3 = st.columns([1, 2, 1])
+    with col1:
+        st.markdown("### About the Project")
+        st.write("""
+        This project is about rental bikes in Vienna, specifically the Nextbike WienMobil system.  
+        There are 254 bike stations spread across the city, allowing people to rent bikes and ride them to other stations.
+        """)
 
-with col1:
-    st.markdown("### Left Info")
-    st.write(page["content"])  # kannst du pro Seite anpassen
+        st.markdown("### Data Overview")
+        st.write("""
+        The map shows the current locations of all bike stations in Vienna.  
+        Each marker represents one station. Clicking on it reveals the station name.
+        """)
 
-with col2:
-    if page["map"]:
-        st.markdown("*(Map or Chart goes here)*")
-        # z. B. folium Karte einbinden oder Plotly/Altair Chart
+    with col2:
+        # Centered map
+        map_center = [stations_df["lat"].mean(), stations_df["long"].mean()]
+        bike_map = folium.Map(location=map_center, zoom_start=13)
+        for _, row in stations_df.iterrows():
+            folium.Marker(
+                location=[row["lat"], row["long"]],
+                popup=row["place_name"],
+                icon=folium.Icon(color="blue", icon="bicycle", prefix="fa")
+            ).add_to(bike_map)
+        st_folium(bike_map, width=600, height=500)
 
-with col3:
-    st.markdown("### Right Info")
-    st.write("Details or image etc.")
+    with col3:
+        st.markdown("### More Info")
+        st.write("""
+        - Source: [WienMobil Rad](https://www.wien.gv.at/english/transportation/bike/)
+        - Data: scraped from the Nextbike API.
+        """)
+        st.image("https://upload.wikimedia.org/wikipedia/commons/4/45/Nextbike_Bike-sharing_Bicycle_in_Berlin.jpg", caption="Example of a Nextbike bicycle", use_column_width=True)
+
 
 elif page == "Analysis":
     st.header("In-depth Analysis")
