@@ -156,7 +156,7 @@ elif page == "Analysis: Trajectories":
             ).add_to(m)
 
         colormap.add_to(m)
-        st_folium(m, width=600, height=500)
+        st_folium(m, width=500, height=500)
 
     with col3:
         st.markdown("### Notes")
