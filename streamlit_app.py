@@ -90,7 +90,7 @@ if page == "Introduction":
 
 elif page == "Analysis: Heatmap":
     st.header("Heatmap")
-    col1, col2, col3 = st.columns([1, 3, 1])  # Adjust ratio as needed
+    col1, col2, col3 = st.columns([1.5, 3, 1])  # Adjust ratio as needed
 
     with col1:
         st.markdown("### About the Project")
