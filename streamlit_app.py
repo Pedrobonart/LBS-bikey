@@ -45,7 +45,7 @@ if page == "Introduction":
     st.header("Introduction")
 
     # Create a 3-column layout
-    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust ratio as needed
+    col1, col2, col3 = st.columns([2, 3, 2])  # Adjust ratio as needed
 
     with col1:
         st.markdown("### About the Project")
