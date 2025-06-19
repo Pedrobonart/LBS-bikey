@@ -133,7 +133,7 @@ elif page == "Analysis: Trajectories":
         avg_lat = sum([lat for lat, _ in origins]) / len(origins)
         avg_lon = sum([lon for _, lon in origins]) / len(origins)
 
-        m = folium.Map(location=[avg_lat+0.01, avg_lon], zoom_start=12)
+        m = folium.Map(location=[avg_lat, avg_lon], zoom_start=12)
 
         for feature in geojson_data["features"]:
             coords = feature["geometry"]["coordinates"]
@@ -150,7 +150,7 @@ elif page == "Analysis: Trajectories":
             folium.PolyLine(
                 locations=[(lat, lon) for lon, lat in coords],  # Switch lon/lat to lat/lon
                 color=color,
-                weight=1 + count * 1.5,
+                weight=0.7 + count * 0.8,
                 opacity=0.7,
                 popup=folium.Popup(popup_text, max_width=300)
             ).add_to(m)
