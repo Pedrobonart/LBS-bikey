@@ -40,7 +40,14 @@ with st.container():
 
 # --- Sidebar Navigation ---
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Introduction", "Analysis", "Conclusion"])
+page = st.sidebar.radio("Go to", ["Introduction", 
+                                  "Analysis: Heatmap",
+                                  "Analysis: Trajectories",
+                                  "Analysis: Balance",
+                                  "Analysis: Capacity",
+                                  "Analysis: Temporal",
+                                  "Analysis: Network",
+                                  "Conclusion"])
 
 if page == "Introduction":
     st.header("Introduction")
@@ -82,7 +89,7 @@ if page == "Introduction":
         #st.image("https://upload.wikimedia.org/wikipedia/commons/4/45/Nextbike_Bike-sharing_Bicycle_in_Berlin.jpg", caption="Example of a Nextbike bicycle", use_container_width=True)
 
 
-elif page == "Analysis":
+elif page == "Analysis: Trajectories":
     st.header("In-depth Analysis")
 
     # Define a three-column layout
