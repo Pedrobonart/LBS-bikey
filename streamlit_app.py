@@ -133,7 +133,7 @@ elif page == "Analysis: Trajectories":
         avg_lat = sum([lat for lat, _ in origins]) / len(origins)
         avg_lon = sum([lon for _, lon in origins]) / len(origins)
 
-        m = folium.Map(location=[avg_lat, avg_lon], zoom_start=12)
+        m = folium.Map(location=[avg_lat+0.01, avg_lon], zoom_start=12)
 
         for feature in geojson_data["features"]:
             coords = feature["geometry"]["coordinates"]
@@ -175,4 +175,4 @@ elif page == "Conclusion":
 
 # --- Fußzeile ---
 st.markdown("""---""")
-st.caption("Project by [Your Name] • University XYZ • 2025")
+st.caption("Project by Number 4 :) • Technical University of Vienna • 2025")
