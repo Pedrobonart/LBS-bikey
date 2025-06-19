@@ -104,29 +104,29 @@ elif page == "Analysis: Heatmap":
         This project is about rental bikes in Vienna.... THIS IS A TEMPLATE SECTION!!! 
         """)
 
-    with col2:
+     with col2:
         df = load_bike_trips()
 
-# Extrahiere Koordinaten von Start- und Zielpunkten
-origins = df[["origin_lat", "origin_lon"]].copy()
-destinations = df[["destination_lat", "destination_lon"]].copy()
-origins.columns = ["lat", "lon"]
-destinations.columns = ["lat", "lon"]
+        # Extrahiere Koordinaten von Start- und Zielpunkten
+        origins = df[["origin_lat", "origin_lon"]].copy()
+        destinations = df[["destination_lat", "destination_lon"]].copy()
+        origins.columns = ["lat", "lon"]
+        destinations.columns = ["lat", "lon"]
 
-# Kombiniere beides
-all_points = pd.concat([origins, destinations], ignore_index=True)
+        # Kombiniere beides
+        all_points = pd.concat([origins, destinations], ignore_index=True)
 
-# Gruppiere und zähle
-heat_data = all_points.groupby(["lat", "lon"]).size().reset_index(name="count")
-heat_points = heat_data[["lat", "lon", "count"]].values.tolist()
+        # Gruppiere und zähle
+        heat_data = all_points.groupby(["lat", "lon"]).size().reset_index(name="count")
+        heat_points = heat_data[["lat", "lon", "count"]].values.tolist()
 
-# Heatmap erzeugen
-map_center = [df["origin_lat"].mean(), df["origin_lon"].mean()]
-heat_map = folium.Map(location=map_center, zoom_start=13)
-HeatMap(heat_points, radius=15, blur=10, max_zoom=1).add_to(heat_map)
+        # Heatmap erzeugen
+        map_center = [df["origin_lat"].mean(), df["origin_lon"].mean()]
+        heat_map = folium.Map(location=map_center, zoom_start=13)
+        HeatMap(heat_points, radius=15, blur=10, max_zoom=1).add_to(heat_map)
 
-# In Streamlit anzeigen
-st_folium(heat_map, width=500, height=500)
+        # In Streamlit anzeigen
+        st_folium(heat_map, width=500, height=500)
 
     with col3:
         st.markdown("### More Info")
