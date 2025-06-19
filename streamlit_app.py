@@ -67,10 +67,10 @@ elif page == "Statistics":
 elif page == "Analysis":
     st.header("In-depth Analysis")
     st.write("Visualizations like maps, usage heatmaps, movement flows etc.")
-import json
+    import json
     import branca.colormap as cm
 
-    geojson_path = "/mnt/data/agg_dur_traj (1).geojson"
+    geojson_path = 'data/agg_dur_traj (1).geojson'
 
     # Load the GeoJSON manually
     with open(geojson_path, "r", encoding="utf-8") as f:
