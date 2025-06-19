@@ -24,22 +24,6 @@ def get_stations_data():
 def load_geojson(path):
     return gpd.read_file(path)
 
-@st.cache_data
-def parse_sld_styles(sld_path):
-    tree = ET.parse(sld_path)
-    root = tree.getroot()
-    ns = {'sld': 'http://www.opengis.net/sld',
-          'ogc': 'http://www.opengis.net/ogc',
-          'se': 'http://www.opengis.net/se'}
-
-    styles = {}
-    for rule in root.findall(".//sld:Rule", ns):
-        label = rule.find("sld:Name", ns).text
-        css_param = rule.find(".//sld:CssParameter[@name='fill']", ns)
-        if css_param is not None:
-            styles[label] = css_param.text
-    return styles
-
 # load & filter data
 stations_df = get_stations_data()
 stations_df = stations_df[~stations_df["place_name"].str.startswith("BIKE")]
@@ -83,26 +67,52 @@ elif page == "Statistics":
 elif page == "Analysis":
     st.header("In-depth Analysis")
     st.write("Visualizations like maps, usage heatmaps, movement flows etc.")
-st.title("GeoJSON Viewer with SLD Styling")
+import json
+    import branca.colormap as cm
 
-    geojson_path = "data/agg_dur_traj (1).geojson"
-    sld_path = "data/test1.sld"
+    geojson_path = "/mnt/data/agg_dur_traj (1).geojson"
 
-    gdf = load_geojson(geojson_path)
-    sld_styles = parse_sld_styles(sld_path)
+    # Load the GeoJSON manually
+    with open(geojson_path, "r", encoding="utf-8") as f:
+        geojson_data = json.load(f)
 
-    column = st.selectbox("Choose the attribute for styling:", gdf.columns)
+    # Determine min/max for color scale
+    durations = [feat["properties"]["avg_duration_min"] for feat in geojson_data["features"]]
+    min_dur = min(durations)
+    max_dur = max(durations)
 
-    center = [gdf.geometry.centroid.y.mean(), gdf.geometry.centroid.x.mean()]
-    m = folium.Map(location=center, zoom_start=12)
+    colormap = cm.linear.YlOrRd_09.scale(min_dur, max_dur)
+    colormap.caption = "Average Trip Duration (min)"
 
-    folium.GeoJson(
-        gdf.to_json(),
-        name="Styled Layer",
-        style_function=style_function_factory(column, sld_styles)
-    ).add_to(m)
+    # Create map centered on mean origin
+    origins = [(f["properties"]["origin_lat"], f["properties"]["origin_lon"]) for f in geojson_data["features"]]
+    avg_lat = sum([lat for lat, _ in origins]) / len(origins)
+    avg_lon = sum([lon for _, lon in origins]) / len(origins)
 
-    folium.LayerControl().add_to(m)
+    m = folium.Map(location=[avg_lat, avg_lon], zoom_start=12)
+
+    # Draw lines
+    for feature in geojson_data["features"]:
+        coords = feature["geometry"]["coordinates"]
+        props = feature["properties"]
+        duration = props["avg_duration_min"]
+        count = props["trip_count"]
+        color = colormap(duration)
+
+        popup_text = f"""
+        <b>Trips:</b> {count}<br>
+        <b>Avg Duration:</b> {duration:.2f} min
+        """
+
+        folium.PolyLine(
+            locations=[(lat, lon) for lon, lat in coords],  # Convert to [lat, lon]
+            color=color,
+            weight=1 + count * 1.5,
+            opacity=0.7,
+            popup=folium.Popup(popup_text, max_width=300)
+        ).add_to(m)
+
+    colormap.add_to(m)
     st_folium(m, width=800, height=600)
 
 elif page == "Conclusion":
