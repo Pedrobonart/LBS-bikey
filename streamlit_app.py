@@ -10,6 +10,7 @@ from streamlit_folium import st_folium
 st.set_page_config(
     page_title='GDP dashboard',
     page_icon=':earth_americas:', # This is an emoji shortcode. Could be a URL too.
+    layout="wide"
 )
 
 @st.cache_data
