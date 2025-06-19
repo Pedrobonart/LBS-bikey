@@ -78,7 +78,7 @@ if page == "Introduction":
                 popup=row["place_name"],
                 icon=folium.Icon(color="blue", icon="bicycle", prefix="fa")
             ).add_to(bike_map)
-        st_folium(bike_map, width=600, height=500)
+        st_folium(bike_map, width=500, height=500)
 
     with col3:
         st.markdown("### More Info")
@@ -108,7 +108,7 @@ elif page == "Analysis: Heatmap":
                 popup=row["place_name"],
                 icon=folium.Icon(color="blue", icon="bicycle", prefix="fa")
             ).add_to(bike_map)
-        st_folium(bike_map, width=600, height=500)
+        st_folium(bike_map, width=500, height=500)
 
     with col3:
         st.markdown("### More Info")
