@@ -62,8 +62,21 @@ if page == "Introduction":
 
 
 elif page == "Statistics":
-    st.header("System Statistics")
-    st.write("Here you can show basic KPIs or charts.")
+   # Layout: 3-Spalten
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col1:
+    st.markdown("### Left Info")
+    st.write(page["content"])  # kannst du pro Seite anpassen
+
+with col2:
+    if page["map"]:
+        st.markdown("*(Map or Chart goes here)*")
+        # z. B. folium Karte einbinden oder Plotly/Altair Chart
+
+with col3:
+    st.markdown("### Right Info")
+    st.write("Details or image etc.")
 
 elif page == "Analysis":
     st.header("In-depth Analysis")
