@@ -79,59 +79,87 @@ if page == "Introduction":
         - Source: [WienMobil Rad](https://www.wien.gv.at/english/transportation/bike/)
         - Data: scraped from the Nextbike API.
         """)
-        st.image("https://upload.wikimedia.org/wikipedia/commons/4/45/Nextbike_Bike-sharing_Bicycle_in_Berlin.jpg", caption="Example of a Nextbike bicycle", use_container_width=True)
+        #st.image("https://upload.wikimedia.org/wikipedia/commons/4/45/Nextbike_Bike-sharing_Bicycle_in_Berlin.jpg", caption="Example of a Nextbike bicycle", use_container_width=True)
 
 
 elif page == "Analysis":
     st.header("In-depth Analysis")
-    st.write("Visualizations like maps, usage heatmaps, movement flows etc.")
-    import json
-    import branca.colormap as cm
 
-    geojson_path = 'data/agg_dur_traj (1).geojson'
+    # Define a three-column layout
+    col1, col2, col3 = st.columns([1.5, 3, 1.5])  # Adjust proportions as needed
 
-    # Load the GeoJSON manually
-    with open(geojson_path, "r", encoding="utf-8") as f:
-        geojson_data = json.load(f)
+    with col1:
+        st.markdown("### Movement Flow Map")
+        st.write("""
+        This interactive map shows **aggregated nighttime bike trips** in Vienna.  
+        Each line represents a movement from an origin to a destination station.
+        """)
+        st.markdown("### Visual Encoding")
+        st.write("""
+        - **Line color**: Represents the average trip duration.
+        - **Line width**: Corresponds to how many trips occurred on that route.
+        """)
+        st.markdown("### Use This Map To:")
+        st.write("""
+        - Identify long vs. short duration trips  
+        - Spot frequently used corridors  
+        - Understand spatial usage patterns at night
+        """)
 
-    # Determine min/max for color scale
-    durations = [feat["properties"]["avg_duration_min"] for feat in geojson_data["features"]]
-    min_dur = min(durations)
-    max_dur = max(durations)
+    with col2:
+        import json
+        import branca.colormap as cm
 
-    colormap = cm.linear.YlOrRd_09.scale(min_dur, max_dur)
-    colormap.caption = "Average Trip Duration (min)"
+        geojson_path = 'data/agg_dur_traj (1).geojson'
 
-    # Create map centered on mean origin
-    origins = [(f["properties"]["origin_lat"], f["properties"]["origin_lon"]) for f in geojson_data["features"]]
-    avg_lat = sum([lat for lat, _ in origins]) / len(origins)
-    avg_lon = sum([lon for _, lon in origins]) / len(origins)
+        with open(geojson_path, "r", encoding="utf-8") as f:
+            geojson_data = json.load(f)
 
-    m = folium.Map(location=[avg_lat, avg_lon], zoom_start=12)
+        durations = [feat["properties"]["avg_duration_min"] for feat in geojson_data["features"]]
+        min_dur = min(durations)
+        max_dur = max(durations)
 
-    # Draw lines
-    for feature in geojson_data["features"]:
-        coords = feature["geometry"]["coordinates"]
-        props = feature["properties"]
-        duration = props["avg_duration_min"]
-        count = props["trip_count"]
-        color = colormap(duration)
+        colormap = cm.linear.YlOrRd_09.scale(min_dur, max_dur)
+        colormap.caption = "Average Trip Duration (min)"
 
-        popup_text = f"""
-        <b>Trips:</b> {count}<br>
-        <b>Avg Duration:</b> {duration:.2f} min
-        """
+        origins = [(f["properties"]["origin_lat"], f["properties"]["origin_lon"]) for f in geojson_data["features"]]
+        avg_lat = sum([lat for lat, _ in origins]) / len(origins)
+        avg_lon = sum([lon for _, lon in origins]) / len(origins)
 
-        folium.PolyLine(
-            locations=[(lat, lon) for lon, lat in coords],  # Convert to [lat, lon]
-            color=color,
-            weight=1 + count * 1.5,
-            opacity=0.7,
-            popup=folium.Popup(popup_text, max_width=300)
-        ).add_to(m)
+        m = folium.Map(location=[avg_lat, avg_lon], zoom_start=12)
 
-    colormap.add_to(m)
-    st_folium(m, width=800, height=600)
+        for feature in geojson_data["features"]:
+            coords = feature["geometry"]["coordinates"]
+            props = feature["properties"]
+            duration = props["avg_duration_min"]
+            count = props["trip_count"]
+            color = colormap(duration)
+
+            popup_text = f"""
+            <b>Trips:</b> {count}<br>
+            <b>Avg Duration:</b> {duration:.2f} min
+            """
+
+            folium.PolyLine(
+                locations=[(lat, lon) for lon, lat in coords],  # Switch lon/lat to lat/lon
+                color=color,
+                weight=1 + count * 1.5,
+                opacity=0.7,
+                popup=folium.Popup(popup_text, max_width=300)
+            ).add_to(m)
+
+        colormap.add_to(m)
+        st_folium(m, width=700, height=500)
+
+    with col3:
+        st.markdown("### Notes")
+        st.write("""
+        This dataset only includes trips recorded during **nighttime hours** (e.g., 10 PM–6 AM).  
+        It has been **pre-aggregated** by origin/destination coordinates.
+        """)
+        st.markdown("### Legend")
+        st.write("Color scale:")
+        st.write(colormap)  # Folium/Branca color map is shown in the map, not here, but documented for user clarity
 
 elif page == "Conclusion":
     st.header("Conclusion & Recommendations")
