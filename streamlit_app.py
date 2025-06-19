@@ -5,9 +5,6 @@ import math
 from pathlib import Path
 import folium
 from streamlit_folium import st_folium
-import xml.etree.ElementTree as ET
-from matplotlib.colors import to_hex
-
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
