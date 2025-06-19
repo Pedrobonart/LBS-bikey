@@ -5,6 +5,7 @@ import math
 from pathlib import Path
 import folium
 from streamlit_folium import st_folium
+from folium.plugins import HeatMap
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
@@ -16,6 +17,11 @@ st.set_page_config(
 @st.cache_data
 def get_stations_data():
     DATA_FILENAME = Path(__file__).parent / 'data/bike_tracking_stations.csv'
+    return pd.read_csv(DATA_FILENAME)
+
+@st.cache_data
+def load_bike_trips():
+    DATA_FILENAME = Path(__file__).parent / "data/bike_journeys_noOutliers.csv"
     return pd.read_csv(DATA_FILENAME)
 
 @st.cache_data
@@ -99,16 +105,28 @@ elif page == "Analysis: Heatmap":
         """)
 
     with col2:
-        # Centered map
-        map_center = [stations_df["lat"].mean(), stations_df["long"].mean()]
-        bike_map = folium.Map(location=map_center, zoom_start=13)
-        for _, row in stations_df.iterrows():
-            folium.Marker(
-                location=[row["lat"], row["long"]],
-                popup=row["place_name"],
-                icon=folium.Icon(color="blue", icon="bicycle", prefix="fa")
-            ).add_to(bike_map)
-        st_folium(bike_map, width=500, height=500)
+        df = load_bike_trips()
+
+# Extrahiere Koordinaten von Start- und Zielpunkten
+origins = df[["origin_lat", "origin_lon"]].copy()
+destinations = df[["destination_lat", "destination_lon"]].copy()
+origins.columns = ["lat", "lon"]
+destinations.columns = ["lat", "lon"]
+
+# Kombiniere beides
+all_points = pd.concat([origins, destinations], ignore_index=True)
+
+# Gruppiere und zähle
+heat_data = all_points.groupby(["lat", "lon"]).size().reset_index(name="count")
+heat_points = heat_data[["lat", "lon", "count"]].values.tolist()
+
+# Heatmap erzeugen
+map_center = [df["origin_lat"].mean(), df["origin_lon"].mean()]
+heat_map = folium.Map(location=map_center, zoom_start=13)
+HeatMap(heat_points, radius=15, blur=10, max_zoom=1).add_to(heat_map)
+
+# In Streamlit anzeigen
+st_folium(heat_map, width=500, height=500)
 
     with col3:
         st.markdown("### More Info")
