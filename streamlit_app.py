@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import geopandas as gpd
 import math
 from pathlib import Path
 import folium
@@ -74,43 +75,6 @@ if page == "Introduction":
     # show map
     st_folium(bike_map, width=700, height=500)
 
-# --- Style function for folium ---
-def style_function_factory(column, sld_styles):
-    def style_function(feature):
-        value = feature['properties'].get(column)
-        color = sld_styles.get(str(value), "#808080")  # default gray
-        return {
-            'fillColor': color,
-            'color': color,
-            'weight': 1,
-            'fillOpacity': 0.6
-        }
-    return style_function
-
-# --- App Layout ---
-st.title("GeoJSON Viewer with SLD Styling")
-
-geojson_path = "/mnt/data/agg_dur_traj (1).geojson"
-sld_path = "/mnt/data/test1.sld"
-
-gdf = load_geojson(geojson_path)
-sld_styles = parse_sld_styles(sld_path)
-
-column = st.selectbox("Choose the attribute for styling:", gdf.columns)
-
-# --- Create map ---
-center = [gdf.geometry.centroid.y.mean(), gdf.geometry.centroid.x.mean()]
-m = folium.Map(location=center, zoom_start=12)
-
-folium.GeoJson(
-    gdf.to_json(),
-    name="Styled Layer",
-    style_function=style_function_factory(column, sld_styles)
-).add_to(m)
-
-folium.LayerControl().add_to(m)
-st_folium(m, width=800, height=600)
-
 
 elif page == "Statistics":
     st.header("System Statistics")
@@ -119,6 +83,27 @@ elif page == "Statistics":
 elif page == "Analysis":
     st.header("In-depth Analysis")
     st.write("Visualizations like maps, usage heatmaps, movement flows etc.")
+st.title("GeoJSON Viewer with SLD Styling")
+
+    geojson_path = "/mnt/data/agg_dur_traj (1).geojson"
+    sld_path = "/mnt/data/test1.sld"
+
+    gdf = load_geojson(geojson_path)
+    sld_styles = parse_sld_styles(sld_path)
+
+    column = st.selectbox("Choose the attribute for styling:", gdf.columns)
+
+    center = [gdf.geometry.centroid.y.mean(), gdf.geometry.centroid.x.mean()]
+    m = folium.Map(location=center, zoom_start=12)
+
+    folium.GeoJson(
+        gdf.to_json(),
+        name="Styled Layer",
+        style_function=style_function_factory(column, sld_styles)
+    ).add_to(m)
+
+    folium.LayerControl().add_to(m)
+    st_folium(m, width=800, height=600)
 
 elif page == "Conclusion":
     st.header("Conclusion & Recommendations")
