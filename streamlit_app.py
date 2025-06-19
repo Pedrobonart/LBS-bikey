@@ -88,6 +88,34 @@ if page == "Introduction":
         """)
         #st.image("https://upload.wikimedia.org/wikipedia/commons/4/45/Nextbike_Bike-sharing_Bicycle_in_Berlin.jpg", caption="Example of a Nextbike bicycle", use_container_width=True)
 
+elif page == "Analysis: Heatmap":
+    st.header("Heatmap")
+    col1, col2, col3 = st.columns([1, 3, 1])  # Adjust ratio as needed
+
+    with col1:
+        st.markdown("### About the Project")
+        st.write("""
+        This project is about rental bikes in Vienna.... THIS IS A TEMPLATE SECTION!!! 
+        """)
+
+    with col2:
+        # Centered map
+        map_center = [stations_df["lat"].mean(), stations_df["long"].mean()]
+        bike_map = folium.Map(location=map_center, zoom_start=13)
+        for _, row in stations_df.iterrows():
+            folium.Marker(
+                location=[row["lat"], row["long"]],
+                popup=row["place_name"],
+                icon=folium.Icon(color="blue", icon="bicycle", prefix="fa")
+            ).add_to(bike_map)
+        st_folium(bike_map, width=600, height=500)
+
+    with col3:
+        st.markdown("### More Info")
+        st.write("""
+        sources, images and stuff
+        """)
+
 
 elif page == "Analysis: Trajectories":
     st.header("In-depth Analysis")
