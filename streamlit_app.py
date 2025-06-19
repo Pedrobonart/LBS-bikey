@@ -40,7 +40,7 @@ with st.container():
 
 # --- Sidebar Navigation ---
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Introduction", "Statistics", "Analysis", "Conclusion"])
+page = st.sidebar.radio("Go to", ["Introduction", "Analysis", "Conclusion"])
 
 if page == "Introduction":
     st.header("Introduction")
@@ -157,9 +157,7 @@ elif page == "Analysis":
         This dataset only includes trips recorded during **nighttime hours** (e.g., 10 PM–6 AM).  
         It has been **pre-aggregated** by origin/destination coordinates.
         """)
-        st.markdown("### Legend")
-        st.write("Color scale:")
-        st.write(colormap)  # Folium/Branca color map is shown in the map, not here, but documented for user clarity
+    
 
 elif page == "Conclusion":
     st.header("Conclusion & Recommendations")
