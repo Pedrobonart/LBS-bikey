@@ -74,6 +74,12 @@ if page == "Introduction":
         Each marker represents one station. Clicking on it reveals the station name.
         """)
 
+        st.markdown("### Sources")
+        st.write("""
+        - Source: [WienMobil Rad](https://www.wien.gv.at/english/transportation/bike/)
+        - Data: scraped from the Nextbike API.
+        """)
+
     with col2:
         # Centered map
         map_center = [stations_df["lat"].mean(), stations_df["long"].mean()]
@@ -87,11 +93,7 @@ if page == "Introduction":
         st_folium(bike_map, width=500, height=500)
 
     with col3:
-        st.markdown("### More Info")
-        st.write("""
-        - Source: [WienMobil Rad](https://www.wien.gv.at/english/transportation/bike/)
-        - Data: scraped from the Nextbike API.
-        """)
+        st.markdown("### Statistics")
         df = load_bike_trips()
 
         # Parse Zeitspalten
@@ -101,19 +103,16 @@ if page == "Introduction":
         # Wichtige Metriken
         total_trips = len(df)
         avg_duration = df["duration_min"].mean()
-        unique_stations = pd.concat([
-            df[["origin_station_id", "origin_lat", "origin_lon"]],
-            df[["destination_staions_id", "destination_lat", "destination_lon"]]
-            .rename(columns={
-                "destination_staions_id": "origin_station_id",
-                "destination_lat": "origin_lat",
-                "destination_lon": "origin_lon"
-            })
-        ]).drop_duplicates().shape[0]
+        start_time = df["departure_time"].min()
+        end_time = df["departure_time"].max()
+        duration_hours = (end_time - start_time).total_seconds() / 3600
+        unique_stations = 254
 
+        st.metric("Unique Stations (Used)", f"{unique_stations}")
+        st.metric("Data Period", f"{start_time.strftime('%b %d')} – {end_time.strftime('%b %d')}")
         st.metric("Total Trips", f"{total_trips:,}")
-        st.metric("Avg Duration (min)", f"{avg_duration:.1f}")
-        st.metric("Unique Stations Used", f"{unique_stations}")
+        st.metric("Avg Trips per Hour", f"{total_trips / duration_hours:.1f}")
+        st.metric("Avg Trip Duration (min)", f"{avg_duration:.1f}")
 
         # Histogram der Startzeiten
         st.markdown("#### Trips per Hour of Day")
