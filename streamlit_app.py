@@ -92,7 +92,35 @@ if page == "Introduction":
         - Source: [WienMobil Rad](https://www.wien.gv.at/english/transportation/bike/)
         - Data: scraped from the Nextbike API.
         """)
-        #st.image("https://upload.wikimedia.org/wikipedia/commons/4/45/Nextbike_Bike-sharing_Bicycle_in_Berlin.jpg", caption="Example of a Nextbike bicycle", use_container_width=True)
+        df = load_bike_trips()
+
+        # Parse Zeitspalten
+        df["departure_time"] = pd.to_datetime(df["departure_time"])
+        df["arrival_time"] = pd.to_datetime(df["arrival_time"])
+
+        # Wichtige Metriken
+        total_trips = len(df)
+        avg_duration = df["duration_min"].mean()
+        unique_stations = pd.concat([
+            df[["origin_station_id", "origin_lat", "origin_lon"]],
+            df[["destination_staions_id", "destination_lat", "destination_lon"]]
+            .rename(columns={
+                "destination_staions_id": "origin_station_id",
+                "destination_lat": "origin_lat",
+                "destination_lon": "origin_lon"
+            })
+        ]).drop_duplicates().shape[0]
+
+        st.metric("Total Trips", f"{total_trips:,}")
+        st.metric("Avg Duration (min)", f"{avg_duration:.1f}")
+        st.metric("Unique Stations Used", f"{unique_stations}")
+
+        # Histogram der Startzeiten
+        st.markdown("#### Trips per Hour of Day")
+        df["hour"] = df["departure_time"].dt.hour
+        hour_counts = df["hour"].value_counts().sort_index()
+
+        st.bar_chart(hour_counts)
 
 elif page == "Analysis: Heatmap":
     st.header("Heatmap")
