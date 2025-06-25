@@ -149,8 +149,8 @@ elif page == "Analysis: Heatmap":
 
         # Heatmap erzeugen
         map_center = [df["origin_lat"].mean(), df["origin_lon"].mean()]
-        heat_map = folium.Map(location=map_center, zoom_start=8)
-        HeatMap(heat_points, radius=15, blur=20, max_zoom=8).add_to(heat_map)
+        heat_map = folium.Map(location=map_center, zoom_start=10)
+        HeatMap(heat_points, radius=15, blur=20, max_zoom=1).add_to(heat_map)
 
         # In Streamlit anzeigen
         st_folium(heat_map, width=500, height=500)
