@@ -50,8 +50,7 @@ page = st.sidebar.radio("Go to", ["Introduction",
                                   "Analysis: Heatmap",
                                   "Analysis: Trajectories",
                                   "Analysis: Balance",
-                                  "Analysis: Capacity",
-                                  "Analysis: Temporal",
+                                  "Analysis: Autocorrelation",
                                   "Analysis: Network",
                                   "Conclusion"])
 
