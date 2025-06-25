@@ -321,7 +321,7 @@ elif page == "Analysis: Network":
         min_c = network_df["degree_centrality"].min()
         max_c = network_df["degree_centrality"].max()
         
-        def scale_radius(value, min_size=4, max_size=20):
+        def scale_radius(value, min_size=1, max_size=20):
             if max_c == min_c:
                 return min_size
             norm = (value - min_c) / (max_c - min_c)
