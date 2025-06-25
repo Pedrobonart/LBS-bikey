@@ -306,20 +306,15 @@ elif page == "Analysis: Network":
     with col1:
         st.markdown("### Networks")
         st.write("""
-        This map shows how connected each station is :  
-        - Green markers indicate more **departures**  
-        - Blue markers indicate more **arrivals**  
-        - Grey markers mean **balanced traffic**
+        This map shows how connected each station is, with the size indicating the degree of centrality
         """)
-        st.write("""
-        The size of each marker reflects the **magnitude of imbalance**.
-        """)
+        
 
     with col2:
         network_df = pd.read_csv("data/network_analysis (1).csv")
 
         map_center = [network_df["lat"].mean(), network_df["lon"].mean()]
-        network_df = folium.Map(location=map_center, zoom_start=12)
+        network_map = folium.Map(location=map_center, zoom_start=12)
 
         for _, row in network_df.iterrows():
             centr = row["degree_centrality"]
