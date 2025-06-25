@@ -256,7 +256,7 @@ elif page == "Analysis: Balance"
 
     with col2:
         # Lade Balancing-Daten
-        balance_df = pd.read_csv("data/.csv")
+        balance_df = pd.read_csv("data/station_dep_vs_arr%20(1).csv")
 
         # Berechne Differenz
         balance_df["diff"] = balance_df["dep_count"] - balance_df["arr_count"]
