@@ -68,7 +68,7 @@ if page == "Introduction":
 
         st.markdown("### Data Overview")
         st.write("""
-        The map shows the current locations of all bike stations in Vienna.  
+        The map shows the current locations of all bike stations in Vienna. There are 254 bike stations spread across the city, allowing people to rent bikes and ride them to other stations.
         Each marker represents one station. Clicking on it reveals the station name.
         """)
 
