@@ -296,6 +296,11 @@ elif page == "Analysis: Balance":
                   balance_df.loc[balance_df["diff"].abs().idxmax(), "station"])
         st.metric("Total Stations", len(balance_df))
         st.metric("Perfectly Balanced", (balance_df["diff"] == 0).sum())
+        more_departures = (balance_df["diff"] > 0).sum()
+        more_arrivals = (balance_df["diff"] < 0).sum()
+        st.markdown(f"**🟩 More Departures:** {more_departures} stations**")
+        st.markdown(f"**🟦 More Arrivals:** {more_arrivals} stations**")
+        st.markdown(balance_df["diff"].sum())
 
 
 elif page == "Analysis: Network":
