@@ -297,9 +297,9 @@ elif page == "Analysis: Balance":
         st.metric("Total Stations", len(balance_df))
         more_departures = (balance_df["diff"] > 0).sum()
         more_arrivals = (balance_df["diff"] < 0).sum()
+        st.markdown(f"**⬜ Perfectly Balanced:** **13 stations**")
         st.markdown(f"**🟩 More Departures:** **123 stations**")
         st.markdown(f"**🟦 More Arrivals:** **118 stations**")
-        st.markdown(f"**⬜ Perfectly Balanced:** **13 stations**")
 
 elif page == "Analysis: Network":
     st.header("Connectiveness of Stations")
