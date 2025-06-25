@@ -322,7 +322,7 @@ elif page == "Analysis: Network":
             centr = row["degree_centrality"]
 
             # Größe proportional zur Differenz (mit Mindestgröße)
-            radius = max(4, min(20, abs(centr)))
+            radius = max(4, min(20, abs(centr)*50))
 
             popup_text = f"""
             <b>{row['station']}</b><br>
