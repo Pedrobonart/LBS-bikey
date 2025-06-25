@@ -299,6 +299,57 @@ elif page == "Analysis: Balance":
         st.metric("Perfectly Balanced", (balance_df["diff"] == 0).sum())
 
 
+elif page == "Analysis: Network":
+    st.header("Connectiveness of Stations")
+    col1, col2, col3 = st.columns([1.5, 3, 1])
+
+    with col1:
+        st.markdown("### Networks")
+        st.write("""
+        This map shows how connected each station is :  
+        - Green markers indicate more **departures**  
+        - Blue markers indicate more **arrivals**  
+        - Grey markers mean **balanced traffic**
+        """)
+        st.write("""
+        The size of each marker reflects the **magnitude of imbalance**.
+        """)
+
+    with col2:
+        network_df = pd.read_csv("data/network_analysis (1).csv")
+
+        map_center = [network_df["lat"].mean(), network_df["lon"].mean()]
+       network_map = folium.Map(location=map_center, zoom_start=12)
+
+        for _, row in network_map.iterrows():
+            centr = row["degree_centrality"]
+
+            # Größe proportional zur Differenz (mit Mindestgröße)
+            radius = max(4, min(20, abs(centr)))
+
+            popup_text = f"""
+            <b>{row['station']}</b><br>
+            Degree of Centrality: {int(row['degree_centrality'])}<br>
+            Number of Trips: {int(row['trips'])}<br>
+            """
+
+            folium.CircleMarker(
+                location=[row["lat"], row["lon"]],
+                radius=radius,
+                color="gray",
+                fill=True,
+                fill_color="gray",
+                fill_opacity=0.6,
+                popup=folium.Popup(popup_text, max_width=250)
+            ).add_to(balance_map)
+
+        st_folium(balance_map, width=500, height=500)
+
+    with col3:
+        st.markdown("### Data Summary")
+        st.metric("Station with the most Centrality", 
+                  network_df.loc[network_df["degree_centrality"].abs().idxmax(), "station"])
+    
 
 elif page == "Conclusion":
     st.header("Conclusion & Recommendations")
