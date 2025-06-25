@@ -1,0 +1,255 @@
+station,lat,lon,dep_count,arr_count,activity_type
+AIT Austrian Institute of Technology / Giefinggasse ,48.268033,16.426886,17.0,20.0,more_arrivals
+Absbergbrücke / Alfred-Böhm-Park,48.167276,16.386339,33.0,33.0,equal
+Absberggasse,48.172123,16.389296,63.0,54.0,more_departures
+Adelheid-Popp-Gasse,48.230723,16.46149,29.0,29.0,equal
+Alaudagasse U,48.15271,16.38247,14.0,12.0,more_departures
+Albertgasse,48.210475,16.343998,138.0,118.0,more_departures
+Alser Straße U,48.216588,16.3416,130.0,136.0,more_arrivals
+Alserbachstraße,48.225138,16.354893,77.0,81.0,more_arrivals
+Alte Donau U,48.237534,16.423788,87.0,82.0,more_departures
+Alterlaa U,48.150204,16.317214,14.0,23.0,more_arrivals
+Altes Landgut U,48.160985,16.383653,50.0,40.0,more_departures
+Althanstraße,48.228936,16.3596,22.0,27.0,more_arrivals
+Am Langen Felde,48.250336,16.450206,24.0,22.0,more_departures
+Am Schöpfwerk U,48.160951,16.324922,20.0,20.0,equal
+Amerlingstraße,48.197306,16.350981,53.0,53.0,equal
+ArbeiterInnenstrand,48.242946,16.414669,39.0,41.0,more_arrivals
+Arbeitergasse - Gürtel,48.18392,16.345801,55.0,49.0,more_departures
+Arthaberplatz,48.173447,16.371831,69.0,76.0,more_arrivals
+Aspern Nord S U,48.235615,16.503965,4.0,5.0,more_arrivals
+Aspernstraße U,48.223008,16.475255,72.0,49.0,more_departures
+Atzgersdorf Bildungscampus,48.153174,16.301623,2.0,4.0,more_arrivals
+Atzgersdorf S,48.146654,16.287907,1.0,1.0,equal
+Auf der Schmelz,48.203673,16.316414,79.0,62.0,more_departures
+Aumannplatz,48.228561,16.335125,47.0,39.0,more_departures
+Bacherplatz,48.188009,16.355089,46.0,51.0,more_arrivals
+Bahngasse / mdw-University of Music and Performing Arts,48.201628,16.384459,89.0,109.0,more_arrivals
+Barbara-Prammer-Allee,48.229561,16.510147,34.0,34.0,equal
+Bauernfeldplatz / Palais Lichtenstein,48.221085,16.360193,101.0,112.0,more_arrivals
+Belgradplatz,48.174228,16.361368,30.0,31.0,more_arrivals
+Berggasse,48.219182,16.366349,212.0,249.0,more_arrivals
+Bertha-von-Suttner-Gasse,48.251355,16.45281,48.0,49.0,more_arrivals
+Bischof-Faber-Platz,48.233868,16.325099,7.0,10.0,more_arrivals
+Bloch-Bauer-Promenade,48.179521,16.385926,88.0,89.0,more_arrivals
+Blériotgasse,48.171395,16.42565,19.0,18.0,more_departures
+Breitensee S,48.198242,16.306901,89.0,76.0,more_departures
+Brestelgasse,48.214001,16.330753,66.0,71.0,more_arrivals
+Brückengasse,48.19126,16.347918,121.0,113.0,more_departures
+Brünner Straße S,48.267376,16.403725,29.0,20.0,more_departures
+Brünnlbadgasse,48.215262,16.346523,124.0,122.0,more_departures
+Burggasse-Stadthalle U,48.203657,16.337419,109.0,100.0,more_departures
+Canisiusgasse,48.229011,16.354359,46.0,44.0,more_departures
+Carl-Appel-Straße,48.169012,16.343611,51.0,44.0,more_departures
+Ceija-Stojka-Platz,48.207702,16.342199,67.0,74.0,more_arrivals
+Donauspital U,48.219878,16.464588,17.0,27.0,more_arrivals
+Dornerplatz,48.221223,16.33459,54.0,65.0,more_arrivals
+Dresdner Straße U,48.237487,16.380363,69.0,61.0,more_departures
+Dänenstraße / BOKU,48.23737,16.33448,113.0,73.0,more_departures
+Edelsinnstraße,48.170578,16.310926,14.0,16.0,more_arrivals
+Elterleinplatz,48.217936,16.332271,68.0,59.0,more_departures
+Enkplatz U,48.17625,16.41326,35.0,28.0,more_departures
+Erdberg U,48.190465,16.415318,83.0,67.0,more_departures
+Erlaaer Straße U,48.142919,16.316576,5.0,5.0,equal
+Erzherzog-Karl-Straße S,48.229619,16.45357,38.0,36.0,more_departures
+Eslarngasse / Juchgasse,48.196678,16.395204,74.0,82.0,more_arrivals
+Etrichstraße,48.14826,16.462393,2.0,1.0,more_departures
+FH Technikum,48.23937,16.377182,27.0,41.0,more_arrivals
+Floridsdorf S U,48.255621,16.400137,142.0,138.0,more_departures
+Floridsdorfer Markt,48.263052,16.399257,15.0,16.0,more_arrivals
+Frankhplatz,48.215164,16.355172,99.0,131.0,more_arrivals
+Franz-Josef Bahnhof S,48.225991,16.360327,95.0,92.0,more_departures
+Friedensbrücke U,48.226825,16.365311,137.0,153.0,more_arrivals
+Friedrich-Engels-Platz,48.244111,16.379304,75.0,96.0,more_arrivals
+Fröbelgasse,48.205827,16.330869,84.0,82.0,more_departures
+Fultonstraße,48.252916,16.413875,49.0,52.0,more_arrivals
+Gasometer U,48.185253,16.417358,95.0,102.0,more_arrivals
+Gatterhölzl,48.175409,16.320534,15.0,11.0,more_departures
+Geiselbergstraße S,48.174951,16.406785,42.0,33.0,more_departures
+Gersthof S,48.231029,16.329505,51.0,52.0,more_arrivals
+Gewerbepark Stadlau,48.245575,16.462515,15.0,24.0,more_arrivals
+Grimmgasse,48.186805,16.327679,51.0,42.0,more_departures
+Grinzing,48.255793,16.342947,27.0,25.0,more_departures
+Großfeldsiedlung U,48.271948,16.447562,21.0,37.0,more_arrivals
+Gumpendorfer Gürtel,48.18934,16.338321,69.0,78.0,more_arrivals
+Gutheil-Schoder-Gasse / Badner Bahn,48.158662,16.334796,7.0,10.0,more_arrivals
+Gußhausstraße / Argentinierstraße,48.197287,16.371572,164.0,167.0,more_arrivals
+Gymnasiumstraße,48.236591,16.348719,67.0,66.0,more_departures
+Hafen Wien,48.183217,16.458423,2.0,0.0,more_departures
+Handelskai S U,48.24201,16.384797,169.0,184.0,more_arrivals
+Hans-Mandl-Berufsschule,48.181161,16.338769,30.0,35.0,more_arrivals
+Hans-Steger-Gasse,48.224465,16.456828,10.0,11.0,more_arrivals
+Hanusch Krankenhaus,48.19853,16.29393,42.0,50.0,more_arrivals
+Hartmanngasse ,48.187123,16.363965,85.0,80.0,more_departures
+Hasnerstraße / Hofferplatz,48.208195,16.332566,58.0,63.0,more_arrivals
+Hauptbahnhof Ost,48.183836,16.379774,126.0,132.0,more_arrivals
+Hauptbahnhof S U ,48.186287,16.375631,418.0,389.0,more_departures
+Hausfeldstraße S U,48.233624,16.486825,21.0,14.0,more_departures
+Heiligenstadt S U,48.248272,16.36813,75.0,75.0,equal
+Hermesstraße / Oscar-Straus-Park ,48.167976,16.282246,17.0,13.0,more_departures
+Hernals S,48.22321,16.315256,79.0,56.0,more_departures
+Herrengasse U,48.209724,16.366685,218.0,216.0,more_departures
+Hetzendorf S,48.167527,16.316119,14.0,19.0,more_arrivals
+Heumühlgasse,48.195304,16.363308,200.0,197.0,more_departures
+Hietzing U,48.187845,16.302445,48.0,55.0,more_arrivals
+Hirschstetten S,48.232992,16.470367,20.0,16.0,more_departures
+Hoher Markt,48.210666,16.372983,158.0,132.0,more_departures
+Hopfengasse,48.269651,16.392036,1.0,2.0,more_arrivals
+Hütteldorf  S U,48.198076,16.261813,20.0,18.0,more_departures
+Jedlesee / Bellgasse,48.262127,16.387658,37.0,39.0,more_arrivals
+Jedleseer Friedhof,48.270076,16.384403,24.0,20.0,more_departures
+Joachimsthaler Platz,48.208885,16.303775,6.0,1.0,more_departures
+Johann-Nepomuk-Vogl-Platz,48.223756,16.337543,40.0,40.0,equal
+Johannesgasse / Stadtpark,48.203384,16.376708,179.0,182.0,more_arrivals
+Johnstrasse U,48.19834,16.318975,103.0,89.0,more_departures
+Josef-Baumann-Gasse,48.25227,16.430805,26.0,32.0,more_arrivals
+Josefstädter Straße U,48.212106,16.33912,155.0,156.0,more_arrivals
+Julius-Raab-Platz,48.211544,16.382374,214.0,198.0,more_departures
+Jägerstraße U,48.235062,16.369919,106.0,107.0,more_arrivals
+Kagran U,48.243746,16.433508,107.0,87.0,more_departures
+Kagraner Anger,48.239166,16.448733,26.0,22.0,more_departures
+Kagraner Platz U,48.251071,16.443794,106.0,104.0,more_departures
+Kantnergasse,48.277738,16.410474,2.0,14.0,more_arrivals
+Kardinal-Nagl-Platz U,48.197069,16.400874,214.0,207.0,more_departures
+Karlsplatz U / TU Wien,48.199877,16.368227,354.0,360.0,more_arrivals
+Karmeliterplatz,48.215683,16.379649,112.0,121.0,more_arrivals
+Kendlerstraße U,48.205571,16.30959,75.0,59.0,more_departures
+Keplerplatz U,48.179192,16.375793,95.0,110.0,more_arrivals
+Krieau U,48.214384,16.414663,97.0,65.0,more_departures
+Kundratstraße,48.176146,16.355224,27.0,25.0,more_departures
+Kutschkergasse,48.225707,16.344196,36.0,28.0,more_departures
+Kärntner Ring,48.202161,16.3713,113.0,103.0,more_departures
+Landstraße - Wien Mitte S U,48.205847,16.385246,271.0,283.0,more_arrivals
+Laudongasse / Schönbornpark,48.21339,16.350695,41.0,43.0,more_arrivals
+Lazarettgasse,48.219312,16.352461,90.0,84.0,more_departures
+Leopoldau S U,48.276824,16.45017,16.0,8.0,more_departures
+Leopoldauer Platz,48.263377,16.440686,18.0,18.0,equal
+Liesing S,48.134253,16.283428,10.0,6.0,more_departures
+Loquaiplatz,48.194597,16.349121,65.0,62.0,more_departures
+Längenfeldgasse U,48.18424,16.333886,68.0,88.0,more_arrivals
+Löwengasse,48.2057,16.395998,164.0,147.0,more_departures
+Margaretengürtel U,48.188489,16.343992,127.0,128.0,more_arrivals
+Maria-Tusch-Straße,48.224719,16.498557,30.0,48.0,more_arrivals
+Markgraf-Rüdiger Straße,48.202473,16.329897,115.0,119.0,more_arrivals
+Marschallplatz,48.165635,16.303146,5.0,15.0,more_arrivals
+Mayerhofgasse,48.192488,16.367014,75.0,74.0,more_departures
+Media Quarter Marx,48.188763,16.404503,172.0,181.0,more_arrivals
+Meidling S U / Schedifkaplatz,48.172862,16.332105,35.0,41.0,more_arrivals
+Messe-Prater U,48.217295,16.406163,208.0,203.0,more_departures
+Michelbeuern-AKH U,48.221804,16.343735,84.0,85.0,more_arrivals
+Mittersteig,48.189735,16.361331,122.0,131.0,more_arrivals
+Modecenterstraße / The Marks,48.184348,16.413837,104.0,91.0,more_departures
+Museumsquartier U,48.202344,16.361117,362.0,382.0,more_arrivals
+Muthgasse,48.252055,16.369822,24.0,16.0,more_departures
+Neilreichgasse,48.176253,16.366421,24.0,25.0,more_arrivals
+Neu Leopoldau,48.273397,16.426352,28.0,12.0,more_departures
+Neubaugasse U,48.198527,16.35093,309.0,315.0,more_arrivals
+Neue Donau U,48.246414,16.395676,105.0,79.0,more_departures
+Niederhofstraße U,48.180233,16.330812,64.0,62.0,more_departures
+Niederpointenstraße,48.20326,16.275366,3.0,7.0,more_arrivals
+Nietzscheplatz,48.220453,16.306123,16.0,12.0,more_departures
+Nordbahnstrasse,48.227231,16.388737,17.0,15.0,more_departures
+Nussbaumallee,48.181554,16.42316,17.0,6.0,more_departures
+Nussdorf S,48.259495,16.367553,28.0,32.0,more_arrivals
+Nussdorfer Straße U,48.231717,16.353124,41.0,40.0,more_departures
+Ober St. Veit U,48.192296,16.274813,34.0,23.0,more_departures
+Oberdöbling S,48.244386,16.344711,25.0,20.0,more_departures
+Obere Augartenstraße,48.223,16.374752,103.0,105.0,more_arrivals
+Oper,48.202683,16.369702,308.0,336.0,more_arrivals
+Ottakring S U,48.211841,16.311806,97.0,70.0,more_departures
+Otto-Probst-Platz,48.154212,16.348729,20.0,23.0,more_arrivals
+Palffygasse,48.217217,16.337131,60.0,90.0,more_arrivals
+Parhamerplatz,48.216137,16.328093,67.0,76.0,more_arrivals
+Perfektastraße U,48.136491,16.313367,8.0,4.0,more_departures
+Petrusgasse,48.192988,16.398459,124.0,117.0,more_departures
+Pilgramgasse U,48.192945,16.354936,125.0,124.0,more_departures
+Plunkergasse,48.199892,16.327151,79.0,82.0,more_arrivals
+Praterstern Ausstellungsstraße,48.21785,16.395483,240.0,260.0,more_arrivals
+Praterstern S U,48.218454,16.390281,378.0,359.0,more_departures
+Purkytgasse ,48.15011,16.33364,6.0,4.0,more_departures
+Radetzkyplatz,48.210682,16.390221,164.0,163.0,more_departures
+Rathaus U,48.211441,16.356586,69.0,62.0,more_departures
+Rathausplatz / Burgtheater,48.209923,16.360245,76.0,66.0,more_departures
+Raxstraße,48.163234,16.366437,14.0,12.0,more_departures
+Reinprechtsdorfer Brücke,48.189633,16.351143,113.0,129.0,more_arrivals
+Rennbahnweg U,48.257535,16.44959,31.0,33.0,more_arrivals
+Rennweg S,48.194261,16.386578,144.0,148.0,more_arrivals
+Reumannplatz U,48.172937,16.378663,76.0,72.0,more_departures
+Richard-Wagner-Platz,48.210054,16.328049,69.0,75.0,more_arrivals
+Rochusmarkt,48.203416,16.389789,75.0,84.0,more_arrivals
+Rosensteingasse,48.21955,16.326586,57.0,52.0,more_departures
+Rosensteingasse / Blumengasse,48.222824,16.328474,49.0,37.0,more_departures
+Rossauer Lände U,48.222729,16.367425,101.0,105.0,more_arrivals
+Rustengasse,48.190832,16.326461,48.0,53.0,more_arrivals
+Sankt-Elisabeth-Platz,48.190903,16.375826,128.0,124.0,more_departures
+Schloss Schönbrunn,48.187201,16.312659,147.0,139.0,more_departures
+Schmelzbrücke,48.19623,16.330241,39.0,52.0,more_arrivals
+Schottenring U,48.215972,16.372194,105.0,132.0,more_arrivals
+Schottenring U /Herminengasse,48.217784,16.373083,71.0,71.0,equal
+Schottentor U,48.214558,16.361492,336.0,324.0,more_departures
+Schuhmeierplatz,48.21069,16.318802,64.0,52.0,more_departures
+Schwarzenbergplatz,48.198852,16.376962,168.0,165.0,more_departures
+Schwedenplatz,48.211721,16.376628,276.0,283.0,more_arrivals
+Schönbrunn U,48.185845,16.319898,75.0,90.0,more_arrivals
+Schüttauplatz,48.225856,16.423761,114.0,113.0,more_departures
+Seepark,48.226593,16.504396,9.0,9.0,equal
+Seestadt U,48.224865,16.507619,45.0,25.0,more_departures
+Seestadt U - Lina-Bo-Bardi-Platz,48.227143,16.508852,41.0,42.0,more_arrivals
+Selzergasse,48.196802,16.323095,59.0,60.0,more_arrivals
+Sensengasse,48.220335,16.35638,71.0,73.0,more_arrivals
+Siebenbrunnenfeldgasse,48.18142,16.352644,37.0,36.0,more_departures
+Siebenbrunnenplatz,48.184975,16.352986,137.0,155.0,more_arrivals
+Siebenhirten U,48.129845,16.310018,5.0,0.0,more_departures
+Siebensternplatz,48.202223,16.352486,127.0,124.0,more_departures
+Siemensstraße S,48.27113,16.42081,11.0,18.0,more_arrivals
+Simmering S U,48.169601,16.420754,37.0,33.0,more_departures
+Simoningplatz,48.179097,16.420704,29.0,25.0,more_departures
+Sonnenallee,48.224888,16.502422,22.0,29.0,more_arrivals
+Speising S,48.17377,16.282425,11.0,13.0,more_arrivals
+Spittelau S U,48.235289,16.35875,147.0,147.0,equal
+Stadion U,48.210893,16.420795,128.0,120.0,more_departures
+Stadlau U,48.21978,16.44922,66.0,39.0,more_departures
+Stavangergasse,48.213317,16.474986,2.0,11.0,more_arrivals
+Stefan-Fadinger-Platz,48.168439,16.354862,34.0,21.0,more_departures
+Stephansplatz U,48.207836,16.372111,145.0,142.0,more_departures
+Strebersdorf / Edmund-Hawranek-Platz,48.291474,16.386194,0.0,8.0,more_arrivals
+Strebersdorf S,48.286421,16.381676,10.0,3.0,more_departures
+Strozzigasse,48.207744,16.349122,281.0,276.0,more_departures
+Stubentor U,48.206812,16.380441,274.0,308.0,more_arrivals
+Svetelskystraße,48.15403,16.46573,27.0,20.0,more_departures
+Taborstraße U,48.219522,16.382218,120.0,145.0,more_arrivals
+Technisches Museum,48.190316,16.317929,21.0,28.0,more_arrivals
+Thaliastraße U,48.207995,16.337984,98.0,103.0,more_arrivals
+Traisengasse S,48.233821,16.383263,82.0,64.0,more_departures
+Universitätsring,48.21192,16.360781,143.0,146.0,more_arrivals
+Urban-Loritz-Platz,48.201034,16.337727,121.0,117.0,more_departures
+VHS Kulturgarage,48.231445,16.51109,11.0,15.0,more_arrivals
+VIC Kaisermühlen U,48.232362,16.415692,207.0,203.0,more_departures
+Vetmed Haupteingang,48.25442,16.431427,9.0,4.0,more_departures
+Vetmed UB,48.253112,16.430644,10.0,21.0,more_arrivals
+Volksgarten,48.206516,16.3604,167.0,181.0,more_arrivals
+Volkstheater U,48.205994,16.356442,108.0,107.0,more_departures
+Vorgartenstraße U,48.223192,16.399795,226.0,200.0,more_departures
+WU-Campus / Südportalstraße ,48.212856,16.407665,355.0,379.0,more_arrivals
+Waldmüllerpark,48.18136,16.367618,23.0,26.0,more_arrivals
+Wallensteinplatz,48.229911,16.371579,179.0,180.0,more_arrivals
+Wassergasse,48.199234,16.394335,84.0,93.0,more_arrivals
+Wattgasse,48.217837,16.319961,60.0,56.0,more_departures
+Wattmanngasse,48.171677,16.291818,1.0,3.0,more_arrivals
+Weißenböckstraße,48.162067,16.42849,12.0,13.0,more_arrivals
+Wendstattgasse,48.14679,16.391242,10.0,12.0,more_arrivals
+Westbahnhof S U,48.19681,16.338577,203.0,186.0,more_departures
+Westbahnhof S U / Felberstraße,48.197958,16.3377,91.0,122.0,more_arrivals
+Westbahnhof S U / Gerstnerstraße,48.195315,16.337344,56.0,79.0,more_arrivals
+Westbahnstraße / Schottenfeldgasse,48.201942,16.343241,116.0,122.0,more_arrivals
+Wieningerplatz,48.194063,16.31846,46.0,45.0,more_departures
+Währinger Park,48.232184,16.346819,10.0,14.0,more_arrivals
+Währinger Straße U,48.225482,16.349795,93.0,88.0,more_departures
+Yppengasse,48.214561,16.335624,138.0,161.0,more_arrivals
+Zentralfriedhof 2. Tor,48.154665,16.442269,18.0,17.0,more_departures
+Zieglergasse U,48.196724,16.343985,238.0,220.0,more_departures
+Zippererstraße U,48.17915,16.411219,14.0,13.0,more_departures
+eLastenräder - Am Tabor,48.224598,16.39209,42.0,40.0,more_departures
+eLastenräder - Am langen Felde,48.250224,16.45065,2.0,3.0,more_arrivals
+eLastenräder - Bruno-Marek-Allee,48.227914,16.391516,47.0,46.0,more_departures
+eLastenräder- Modecenterstraße / The Marks,48.184929,16.413964,16.0,10.0,more_departures
