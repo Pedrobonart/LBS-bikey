@@ -63,8 +63,7 @@ if page == "Introduction":
     with col1:
         st.markdown("### About the Project")
         st.write("""
-        This project is about rental bikes in Vienna, specifically the Nextbike WienMobil system.  
-        There are 254 bike stations spread across the city, allowing people to rent bikes and ride them to other stations.
+        With cities growing rapidly, there’s an urgent need to rethink how we move through urban spaces. Making cities less dependent on cars is a key step toward more sustainable and inclusive living. Public bikes offer a healthy, affordable, and flexible way to get around—especially for short trips or to connect with other public transport. But how well is this system working in Vienna? This project looks closely at the city’s bike-sharing system - specifically the Nextbike WienMobil system -, identifies key challenges, and explores ways to improve it using a location-based approach. There are 254 bike stations spread across the city, allowing people to rent bikes and ride them to other stations.
         """)
 
         st.markdown("### Data Overview")
