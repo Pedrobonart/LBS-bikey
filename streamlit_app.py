@@ -148,7 +148,7 @@ elif page == "Analysis: Heatmap":
         heat_points = heat_data[["lat", "lon", "count"]].values.tolist()
 
         # Heatmap erzeugen
-        map_center = [16.37018, 48.20950]
+        map_center = [48.20950, 16.37018]
         heat_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1).add_to(heat_map)
 
