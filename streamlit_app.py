@@ -239,7 +239,7 @@ elif page == "Analysis: Trajectories":
         """)
     
 elif page == "Analysis: Balance":
-        st.header("Origin vs. Destination Balance")
+    st.header("Origin vs. Destination Balance")
     col1, col2, col3 = st.columns([1.5, 3, 1])
 
     with col1:
