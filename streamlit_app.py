@@ -289,6 +289,53 @@ elif page == "Analysis: Balance":
 
         st_folium(balance_map, width=500, height=500)
 
+    st.markdown("### Temporal Disbalance Map")
+    df_temp = pd.read_csv("data/station_arr_dep_time (1).csv")
+    time_of_day = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
+
+    # Dynamische Spaltennamen auf Basis der Auswahl
+    dep_col = f"dep_{time_of_day}"
+    arr_col = f"arr_{time_of_day}"
+    status_col = f"status_{time_of_day}"
+
+    # Karte vorbereiten
+    temp_map = folium.Map(location=[df_temp["lat"].mean(), df_temp["lon"].mean()], zoom_start=12)
+
+    for _, row in df_temp.iterrows():
+        dep = row[dep_col]
+        arr = row[arr_col]
+        status = row[status_col]
+        total = dep + arr
+
+        # Farbe und Radius festlegen
+        if status == "more_arrivals":
+            color = "blue"
+        elif status == "more_departures":
+            color = "green"
+        else:
+            color = "gray"
+
+        radius = 4 + total * 0.3  # Je mehr Verkehr, desto größer
+
+        popup_text = f"""
+        <b>Station:</b> {row['station']}<br>
+        <b>Departures:</b> {dep}<br>
+        <b>Arrivals:</b> {arr}<br>
+        <b>Status:</b> {status}
+        """
+
+        folium.CircleMarker(
+            location=[row["lat"], row["lon"]],
+            radius=radius,
+            color=color,
+            fill=True,
+            fill_opacity=0.6,
+            popup=folium.Popup(popup_text, max_width=300)
+        ).add_to(temp_map)
+
+    st_folium(temp_map, width=500, height=500)
+
+
     with col3:
         st.markdown("### Data Summary")
         st.metric("Most Imbalanced Station", 
