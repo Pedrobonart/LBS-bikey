@@ -318,11 +318,18 @@ elif page == "Analysis: Network":
         map_center = [network_df["lat"].mean(), network_df["lon"].mean()]
         network_map = folium.Map(location=map_center, zoom_start=12)
 
+        min_c = network_df["degree_centrality"].min()
+        max_c = network_df["degree_centrality"].max()
+        
+        def scale_radius(value, min_size=4, max_size=20):
+            if max_c == min_c:
+                return min_size
+            norm = (value - min_c) / (max_c - min_c)
+            return min_size + norm * (max_size - min_size)
+        
         for _, row in network_df.iterrows():
             centr = row["degree_centrality"]
-
-            # Größe proportional zur Differenz (mit Mindestgröße)
-            radius = max(4, min(20, abs(centr)*50))
+            radius = scale_radius(centr)
 
             popup_text = f"""
             <b>{row['station']}</b><br>
