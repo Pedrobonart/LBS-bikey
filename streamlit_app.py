@@ -333,7 +333,7 @@ elif page == "Analysis: Network":
 
             popup_text = f"""
             <b>{row['station']}</b><br>
-            Degree of Centrality: {int(row['degree_centrality'])}<br>
+            Degree of Centrality: {centr:.3f}<br>
             Number of Trips: {int(row['trips'])}<br>
             """
 
