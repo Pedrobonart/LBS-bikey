@@ -271,7 +271,7 @@ elif page == "Analysis: Balance":
                 color = "gray"
 
             # Größe proportional zur Differenz (mit Mindestgröße)
-            radius = max(4, min(15, abs(diff)/2))
+            radius = max(4, min(12, abs(diff)/3))
 
             popup_text = f"""
             <b>{row['station']}</b><br>
