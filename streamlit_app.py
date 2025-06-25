@@ -319,7 +319,7 @@ elif page == "Analysis: Network":
         network_df = pd.read_csv("data/network_analysis (1).csv")
 
         map_center = [network_df["lat"].mean(), network_df["lon"].mean()]
-       network_map = folium.Map(location=map_center, zoom_start=12)
+        network_map = folium.Map(location=map_center, zoom_start=12)
 
         for _, row in network_map.iterrows():
             centr = row["degree_centrality"]
