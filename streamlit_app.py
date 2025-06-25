@@ -80,8 +80,8 @@ if page == "Introduction":
 
     with col2:
         # Centered map
-        map_center = [stations_df["lat"].mean(), stations_df["long"].mean()]
-        bike_map = folium.Map(location=map_center, zoom_start=13)
+        map_center = [48.20950, 16.37018]
+        bike_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
         for _, row in stations_df.iterrows():
             folium.Marker(
                 location=[row["lat"], row["long"]],
