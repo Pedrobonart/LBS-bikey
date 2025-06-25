@@ -335,7 +335,7 @@ elif page == "Analysis: Network":
             <b>{row['station']}</b><br>
             Degree of Centrality: {centr:.3f}<br>
             Number of Trips: {int(row['trips'])}<br>
-            Number of Stations trips are going to: {int(row['connections_out'])}
+            Number of Stations trips are going to: {int(row['connections_out'])}<br>
             Number of stations trips are coming from : {int(row['connections_in'])}
             """
 
