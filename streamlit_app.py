@@ -336,9 +336,9 @@ elif page == "Analysis: Network":
                 fill_color="gray",
                 fill_opacity=0.6,
                 popup=folium.Popup(popup_text, max_width=250)
-            ).add_to(balance_map)
+            ).add_to(network_map)
 
-        st_folium(balance_map, width=500, height=500)
+        st_folium(network_map, width=500, height=500)
 
     with col3:
         st.markdown("### Data Summary")
