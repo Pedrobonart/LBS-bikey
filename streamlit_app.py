@@ -255,13 +255,9 @@ elif page == "Analysis: Balance":
         """)
 
     with col2:
-        # Lade Balancing-Daten
         balance_df = pd.read_csv("data/station_dep_vs_arr (1).csv")
-
-        # Berechne Differenz
         balance_df["diff"] = balance_df["dep_count"] - balance_df["arr_count"]
 
-        # Karte initialisieren
         map_center = [balance_df["lat"].mean(), balance_df["lon"].mean()]
         balance_map = folium.Map(location=map_center, zoom_start=12)
 
