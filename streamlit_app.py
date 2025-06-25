@@ -238,6 +238,71 @@ elif page == "Analysis: Trajectories":
         It has been **pre-aggregated** by origin/destination coordinates.
         """)
     
+elif page == "Analysis: Balance"
+        st.header("Origin vs. Destination Balance")
+    col1, col2, col3 = st.columns([1.5, 3, 1])
+
+    with col1:
+        st.markdown("### Station Activity")
+        st.write("""
+        This map shows the **net balance of trips** at each station:  
+        - Green markers indicate more **departures**  
+        - Blue markers indicate more **arrivals**  
+        - Grey markers mean **balanced traffic**
+        """)
+        st.write("""
+        The size of each marker reflects the **magnitude of imbalance**.
+        """)
+
+    with col2:
+        # Lade Balancing-Daten
+        balance_df = pd.read_csv("data/.csv")
+
+        # Berechne Differenz
+        balance_df["diff"] = balance_df["dep_count"] - balance_df["arr_count"]
+
+        # Karte initialisieren
+        map_center = [balance_df["lat"].mean(), balance_df["lon"].mean()]
+        balance_map = folium.Map(location=map_center, zoom_start=12)
+
+        for _, row in balance_df.iterrows():
+            diff = row["diff"]
+            if diff > 0:
+                color = "green"
+            elif diff < 0:
+                color = "blue"
+            else:
+                color = "gray"
+
+            # Größe proportional zur Differenz (mit Mindestgröße)
+            radius = max(4, min(20, abs(diff)))
+
+            popup_text = f"""
+            <b>{row['station']}</b><br>
+            Departures: {int(row['dep_count'])}<br>
+            Arrivals: {int(row['arr_count'])}<br>
+            """
+
+            folium.CircleMarker(
+                location=[row["lat"], row["lon"]],
+                radius=radius,
+                color=color,
+                fill=True,
+                fill_color=color,
+                fill_opacity=0.6,
+                popup=folium.Popup(popup_text, max_width=250)
+            ).add_to(balance_map)
+
+        st_folium(balance_map, width=500, height=500)
+
+    with col3:
+        st.markdown("### Data Summary")
+        st.metric("Most Imbalanced Station", 
+                  balance_df.loc[balance_df["diff"].abs().idxmax(), "station"])
+        st.metric("Total Stations", len(balance_df))
+        st.metric("Perfectly Balanced", (balance_df["diff"] == 0).sum())
+
+
 
 elif page == "Conclusion":
     st.header("Conclusion & Recommendations")
