@@ -238,7 +238,7 @@ elif page == "Analysis: Trajectories":
         It has been **pre-aggregated** by origin/destination coordinates.
         """)
     
-elif page == "Analysis: Balance"
+elif page == "Analysis: Balance":
         st.header("Origin vs. Destination Balance")
     col1, col2, col3 = st.columns([1.5, 3, 1])
 
