@@ -313,6 +313,8 @@ elif page == "Analysis: Network":
     with col2:
         network_df = pd.read_csv("data/network_analysis (1).csv")
 
+        network_df = network_df.dropna(subset=["lat", "lon"])
+
         map_center = [network_df["lat"].mean(), network_df["lon"].mean()]
         network_map = folium.Map(location=map_center, zoom_start=12)
 
