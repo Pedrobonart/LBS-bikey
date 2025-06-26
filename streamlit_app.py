@@ -50,10 +50,10 @@ with st.container():
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Introduction", 
                                   "Analysis: Heatmap",
+                                  "Analysis: Network",
                                   "Analysis: Balance",
                                   "Analysis: Trajectories",
                                   "Analysis: Autocorrelation",
-                                  "Analysis: Network",
                                   "Conclusion"])
 
 if page == "Introduction":
@@ -123,7 +123,7 @@ if page == "Introduction":
 
 elif page == "Analysis: Heatmap":
     st.header("Heatmap")
-    col1, col2, col3 = st.columns([1.5, 3, 1])  # Adjust ratio as needed
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust ratio as needed
 
     with col1:
         st.markdown("### About the Project")
@@ -206,7 +206,7 @@ elif page == "Analysis: Trajectories":
     st.header("In-depth Analysis")
 
     # Define a three-column layout
-    col1, col2, col3 = st.columns([1.5, 3, 1])  # Adjust proportions as needed
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust proportions as needed
 
     with col1:
         st.markdown("### Movement Flow Map")
@@ -269,7 +269,7 @@ elif page == "Analysis: Trajectories":
             ).add_to(m)
 
         colormap.add_to(m)
-        st_folium(m, width=500, height=500)
+        st_folium(m, width=700, height=500)
 
     with col3:
         st.markdown("### Notes")
@@ -344,7 +344,7 @@ elif page == "Analysis: Balance":
                 popup=folium.Popup(popup_text, max_width=250)
             ).add_to(balance_map)
 
-        st_folium(balance_map, width=500, height=500)
+        st_folium(balance_map, width=700, height=500)
 
         df_temp = pd.read_csv("data/station_arr_dep_time (1).csv")
         time_of_day = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
@@ -389,7 +389,7 @@ elif page == "Analysis: Balance":
                 popup=folium.Popup(popup_text, max_width=300)
             ).add_to(temp_map)
 
-        st_folium(temp_map, width=500, height=500)
+        st_folium(temp_map, width=700, height=500)
 
 
     with col3:
@@ -416,7 +416,7 @@ elif page == "Analysis: Balance":
 
 elif page == "Analysis: Network":
     st.header("Connectiveness of Stations")
-    col1, col2, col3 = st.columns([1.5, 3, 1])
+    col1, col2, col3 = st.columns([1, 2, 1])
 
     with col1:
         st.markdown("### Networks")
@@ -464,7 +464,7 @@ elif page == "Analysis: Network":
                 popup=folium.Popup(popup_text, max_width=250)
             ).add_to(network_map)
 
-        st_folium(network_map, width=500, height=500)
+        st_folium(network_map, width=700, height=500)
 
     with col3:
         st.markdown("### Data Summary")
