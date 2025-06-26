@@ -7,6 +7,9 @@ import pandas as pd
 def show_page():
     stations_df = get_stations_data()
     stations_df = stations_df[~stations_df["place_name"].str.startswith("BIKE")]
+    df = load_bike_trips()
+    df["departure_time"] = pd.to_datetime(df["departure_time"])
+    df["arrival_time"] = pd.to_datetime(df["arrival_time"])
 
     st.header("Introduction")
     st.markdown(
@@ -52,11 +55,7 @@ def show_page():
 
     with col3:
         st.markdown("### Statistics")
-        df = load_bike_trips()
-
-        df["departure_time"] = pd.to_datetime(df["departure_time"])
-        df["arrival_time"] = pd.to_datetime(df["arrival_time"])
-
+        
         total_trips = len(df)
         avg_duration = df["duration_min"].mean()
         start_time = df["departure_time"].min()
