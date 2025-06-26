@@ -2,3 +2,4 @@ streamlit
 pandas
 geopandas
 streamlit-folium
+black
