@@ -264,7 +264,7 @@ elif page == "Analysis: Balance":
         """)
         st.markdown("<br>", unsafe_allow_html=True)
         st.write("""
-        These interactive collection of maps provides interesting insights to different patterns in the different time windows.
+        This interactive collection of maps provides interesting insights to different patterns in the different time windows.
         """)
 
     with col2:
