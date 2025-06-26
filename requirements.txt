@@ -2,4 +2,4 @@ streamlit
 pandas
 geopandas
 streamlit-folium
-PIL
+Pillow
