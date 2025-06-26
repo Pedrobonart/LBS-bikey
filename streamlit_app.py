@@ -262,6 +262,10 @@ elif page == "Analysis: Balance":
         - Evening: **16:00 - 20:00**
         - Night: **20:00 - 7:00**
         """)
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.write("""
+        These interactive collection of maps provides interesting insights to different patterns in the different time windows.
+        """)
 
     with col2:
         balance_df = pd.read_csv("data/station_dep_vs_arr (1).csv")
@@ -349,7 +353,7 @@ elif page == "Analysis: Balance":
     with col3:
         st.markdown("### Data Summary")
         st.metric("Most Imbalanced Station", 
-                  balance_df.loc[balance_df["diff"].abs().idxmax(), "station"])
+                  "Dänenstr. / BOKU")
         st.metric("Total Stations", len(balance_df))
         more_departures = (balance_df["diff"] > 0).sum()
         more_arrivals = (balance_df["diff"] < 0).sum()
