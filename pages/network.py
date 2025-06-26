@@ -2,6 +2,7 @@ import streamlit as st
 from utils.data_loaders import load_network_data
 import folium
 from streamlit_folium import st_folium
+import pandas as pd
 
 def show_page():
     st.header("Connectiveness of Stations")
