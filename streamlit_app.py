@@ -165,7 +165,7 @@ elif page == "Analysis: Heatmap":
         gdf = gpd.GeoDataFrame(df_poly, geometry='geometry')
         
         # Add GeoJson polygons to the map
-                folium.GeoJson(
+        folium.GeoJson(
                 gdf,
                 name="Vienna Districts",
                 tooltip=folium.GeoJsonTooltip(fields=["NAMEK"])
