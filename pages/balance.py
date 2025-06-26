@@ -143,23 +143,23 @@ def show_page():
         st.markdown("<br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
         st.write("""
         
-        - high values surrounded by high values (HH)
-        - High values surrounded by low values (HL)
-        - Low values surrounded by high values (LH)
-        - Low values surrounded by low values (LL)
-        - Cells with no significance
+        1. high values surrounded by high values (HH)
+        2. High values surrounded by low values (HL)
+        3. Low values surrounded by high values (LH)
+        4. Low values surrounded by low values (LL)
+        5. Cells with no significance
         """)
         st.write("""
         Values of LH and HL indicate spatial outliers, while values of HH and LL indicate clusters.
         """)
 
         st.write("""
-        - Morning	0.15
-        - Midday	0.12
-        - Evening	0.06
-        - Night	0.33
+        - Morning:	0.15
+        - Midday:	0.12
+        - Evening:	0.06
+        - Night:	0.33
         	
-        - Average	0.03
+        - Average:	0.03
         """)
 
         
