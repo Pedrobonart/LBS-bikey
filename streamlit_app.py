@@ -153,11 +153,11 @@ elif page == "Analysis: Heatmap":
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
 
         # Add Vienna districts GeoJSON
-        geojson_url = "data/BEZIRKSGRENZEOGD.json"
-        geojson_data = requests.get(geojson_url).json()
+        json_url = "https://github.com/Pedrobonart/LBS-bikey/blob/a2580c6f77bd97db53d606e0ef4de97be37b9533/data/BEZIRKSGRENZEOGD.json"
+        json_data = requests.get(json_url).json()
 
         folium.GeoJson(
-            geojson_data,
+            json_data,
             name='Vienna District Borders',
             style_function=lambda feature: {
                 "color": "black",
