@@ -122,7 +122,7 @@ def show_page():
         st_folium(temp_map, width=700, height=500)
         
         
-        time_of_day_auto = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
+        time_of_day_auto = st.selectbox("Choose time of day", ["morning", "midday", "evening", "night"])
         # Construct image path
         image_path_auto = f"data/autocorrelation_{time_of_day_auto}.png"
         # Load and show image
