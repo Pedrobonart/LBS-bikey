@@ -6,7 +6,8 @@ from pathlib import Path
 import folium
 from streamlit_folium import st_folium
 from folium.plugins import HeatMap
-import requests
+from shapely import wkt
+
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
@@ -151,7 +152,27 @@ elif page == "Analysis: Heatmap":
         map_center = [48.21204, 16.37733]
         heat_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
+
+        # District visualization
+        # Read the CSV
+        df = pd.read_csv("data/BEZIRKSGRENZEOGD.csv")
+
+        # Only keep rows with 'POLYGON' in SHAPE (skip CURVEPOLYGON for now)
+        df_poly = df[df['SHAPE'].str.startswith('POLYGON')].copy()
+        df_poly['geometry'] = df_poly['SHAPE'].apply(wkt.loads)
+
+        # Create a GeoDataFrame
+        gdf = gpd.GeoDataFrame(df_poly, geometry='geometry')
         
+        # Add GeoJson polygons to the map
+                folium.GeoJson(
+                gdf,
+                name="Vienna Districts",
+                tooltip=folium.GeoJsonTooltip(fields=["NAMEK"])
+        ).add_to(m)
+
+        folium.LayerControl().add_to(m)
+
         # In Streamlit anzeigen
         st_folium(heat_map, width=700, height=500)
 
