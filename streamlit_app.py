@@ -80,7 +80,7 @@ if page == "Introduction":
 
     with col2:
         # Centered map
-        map_center = [48.20950, 16.37018]
+        map_center = [48.21204, 16.37733]
         bike_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
         for _, row in stations_df.iterrows():
             folium.Marker(
@@ -146,7 +146,7 @@ elif page == "Analysis: Heatmap":
         heat_points = heat_data[["lat", "lon", "count"]].values.tolist()
 
         # Heatmap erzeugen
-        map_center = [48.20950, 16.37018]
+        map_center = [48.21204, 16.37733]
         heat_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, gradient={0.0: '#ffffff', 1:'#d62b2b'}).add_to(heat_map)
 
