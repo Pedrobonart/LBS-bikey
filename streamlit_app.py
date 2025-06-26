@@ -262,7 +262,7 @@ elif page == "Analysis: Balance":
         - Evening: **16:00 - 20:00**
         - Night: **20:00 - 7:00**
         """)
-        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
         st.write("""
         These interactive collection of maps provides interesting insights to different patterns in the different time windows.
         """)
