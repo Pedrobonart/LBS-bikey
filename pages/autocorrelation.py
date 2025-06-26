@@ -9,6 +9,19 @@ def show_page():
     with col1:
         st.markdown("### Capacity Autocorrelation")
         st.write("""
+            Each bike station has a certain capacity for the number of bikes. 
+            The average occupancy percentage per station was calculated for the entire timeframe. 
+            Global and local Moran's I were then calculated to determine if there is a spatial 
+            relationship between stations with high and low capacities.
+        """)
+
+    with col2:
+        # You can add visualizations or more content here for col2
+        pass
+
+    with col3:
+        st.markdown("### Explenation")
+        st.write("""
         Global Moran's I provides a measure of the entire dataset ranging from -1 to 1, 
         where -1 indicates dispersion and 1 indicates full clustering. 
         To understand how this is reflected spatially at each station, 
@@ -23,23 +36,10 @@ def show_page():
 
         Values of LH and HL indicate spatial outliers, while values of HH and LL indicate clusters.
         """)
-
-    with col2:
-        # You can add visualizations or more content here for col2
-        pass
-
-    with col3:
-        st.markdown("### Explenation")
-        st.write("""
-        Each bike station has a certain capacity for the number of bikes. 
-        The average occupancy percentage per station was calculated for the entire timeframe. 
-        Global and local Moran's I were then calculated to determine if there is a spatial relationship 
-        between stations with high and low capacities.
-        """)
         
         data_tabl = {
-            "Label": ["Non-Significant", "HH", "Evening", "Night"],
-            "Amount of Trips": [3424, 5340, 6907, 4901]
+            "Label": ["HH", "LL", "HL", "LH", "Non-Significant"],
+            "Value": [14, 13, 4, 2, 161]
         }
         df_tabl = pd.DataFrame(data_tabl)
         st.markdown("### Summary by Time of Day")
