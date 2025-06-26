@@ -23,9 +23,10 @@ def show_page():
 
         Values of LH and HL indicate spatial outliers, while values of HH and LL indicate clusters.
         """)
-    
+
     with col2:
-        
+        # You can add visualizations or more content here for col2
+        pass
 
     with col3:
         st.markdown("### Explenation")
@@ -43,4 +44,3 @@ def show_page():
         df_tabl = pd.DataFrame(data_tabl)
         st.markdown("### Summary by Time of Day")
         st.table(df_tabl)
-   
