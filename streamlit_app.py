@@ -126,7 +126,8 @@ elif page == "Analysis: Heatmap":
     with col1:
         st.markdown("### About the Project")
         st.write("""
-        This interactive heatmap gives a good overview of the density of rental stations in Vienna.  
+        This interactive heatmap gives a good overview of the density of rental stations in Vienna.
+        The monocentric structure of Vienna can be clearly seen. 
         """)
 
     with col2:
