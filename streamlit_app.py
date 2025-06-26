@@ -331,8 +331,7 @@ elif page == "Analysis: Balance":
             popup_text = f"""
             <b>Station:</b> {row['station']}<br>
             <b>Departures:</b> {int(dep)}<br>
-            <b>Arrivals:</b> {int(arr)}<br>
-            <b>Status:</b> {status}
+            <b>Arrivals:</b> {int(arr)}
             """
 
             folium.CircleMarker(
@@ -358,7 +357,7 @@ elif page == "Analysis: Balance":
         st.markdown(f"**🟩 More Departures:** **123 stations**")
         st.markdown(f"**🟦 More Arrivals:** **118 stations**")
 
-        st.markdown("<br><br><br>", unsafe_allow_html=True)
+        st.markdown("<br><br><br><br>", unsafe_allow_html=True)
         data_tabl = {
             "Time of Day": ["Morning", "Midday", "Evening", "Night"],
             "# Trips": [3424, 5340, 6907, 4901],
