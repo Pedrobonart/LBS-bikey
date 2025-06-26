@@ -44,7 +44,7 @@ def show_page():
         avg_lat = sum([lat for lat, _ in origins]) / len(origins)
         avg_lon = sum([lon for _, lon in origins]) / len(origins)
 
-        image = Image.open("data/midday_traj.png")
+        image = Image.open("data/aggregated_trajectories.png")
         st.image(image, caption="Bike Usage Trajectories", use_container_width=True)
 
         time_of_day = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
