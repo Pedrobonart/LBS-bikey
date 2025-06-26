@@ -154,17 +154,23 @@ elif page == "Analysis: Heatmap":
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
 
         # District visualization
-        # Read the CSV
+            # Read the CSV
         df = pd.read_csv("data/BEZIRKSGRENZEOGD.csv")
 
-        # Only keep rows with 'POLYGON' in SHAPE (skip CURVEPOLYGON for now)
+            # Only keep rows with 'POLYGON' in SHAPE (skip CURVEPOLYGON for now)
         df_poly = df[df['SHAPE'].str.startswith('POLYGON')].copy()
         df_poly['geometry'] = df_poly['SHAPE'].apply(wkt.loads)
 
-        # Create a GeoDataFrame
+            # Create a GeoDataFrame
         gdf = gpd.GeoDataFrame(df_poly, geometry='geometry')
+
+            # Set the CRS to the original (e.g., EPSG:31256)
+        gdf.set_crs(epsg=31256, inplace=True)  # <-- Add this line!
+
+            # Convert to WGS84 for Folium
+        gdf = gdf.to_crs(epsg=4326)
         
-        # Add GeoJson polygons to the map
+            # Add GeoJson polygons to the map
         folium.GeoJson(
                 gdf,
                 name="Vienna Districts",
@@ -173,7 +179,7 @@ elif page == "Analysis: Heatmap":
 
         folium.LayerControl().add_to(heat_map)
 
-        # In Streamlit anzeigen
+            # In Streamlit anzeigen
         st_folium(heat_map, width=700, height=500)
 
     with col3:
