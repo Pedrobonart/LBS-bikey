@@ -29,8 +29,9 @@ def show_page():
         - Spot frequently used corridors  
         - Understand spatial usage patterns
         """)
+        st.markdown("<br><br><br>", unsafe_allow_html=True)
         st.write("""
-        Trip data is disaggregated into four daily time windows, revealing strong commuting flows and recreational cycling trends. 
+        Again, trip data is disaggregated into four daily time windows. revealing strong commuting flows and recreational cycling trends. 
         Morning and evening show pronounced radial patterns aligned with work and residential zones, while midday and night reflect more localized and recreational travel.
         """)
 
@@ -63,4 +64,9 @@ def show_page():
         st.write("""
         This dataset only includes trips recorded during **nighttime hours** (e.g., 10 PM–6 AM).  
         It has been **pre-aggregated** by origin/destination coordinates.
+        """)
+        st.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+        st.write("""
+        This shows strong commuting flows and recreational cycling trends. 
+        Morning and evening show pronounced radial patterns aligned with work and residential zones, while midday and night reflect more localized and recreational travel.
         """)
