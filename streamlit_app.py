@@ -48,8 +48,8 @@ with st.container():
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Introduction", 
                                   "Analysis: Heatmap",
-                                  "Analysis: Trajectories",
                                   "Analysis: Balance",
+                                  "Analysis: Trajectories",
                                   "Analysis: Autocorrelation",
                                   "Analysis: Network",
                                   "Conclusion"])
