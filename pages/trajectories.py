@@ -70,3 +70,11 @@ def show_page():
         This shows strong commuting flows and recreational cycling trends. 
         Morning and evening show pronounced radial patterns aligned with work and residential zones, while midday and night reflect more localized and recreational travel.
         """)
+        data_tab = {
+            "Time of Day": ["Morning", "Midday", "Evening", "Night"],
+            "Amount of Trips": [3424, 5340, 6907, 4901],
+            "Mean Duration (min)": [30.77, 35.23, 34.18, 28.54]
+        }
+        df_tab = pd.DataFrame(data_tab)
+        st.markdown("### Summary by Time of Day")
+        st.table(df_tab)
