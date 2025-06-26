@@ -20,8 +20,8 @@ def show_page():
         """)
         st.markdown("### Visual Encoding")
         st.write("""
-        - **Line color**: Represents the average trip duration.
-        - **Line width**: Corresponds to how many trips occurred on that route.
+        - **Line color**: Average trip duration
+        - **Line width**: Amount of trips occurred on that route
         """)
         st.markdown("### Use This Map To:")
         st.write("""
