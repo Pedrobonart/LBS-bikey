@@ -121,12 +121,12 @@ def show_page():
         st_folium(temp_map, width=700, height=500)
         
         
-        time_of_day = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
+        time_of_day_auto = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
         # Construct image path
-        image_path = f"data/autocorrelation_{time_of_day}.png"
+        image_path_auto = f"data/autocorrelation_{time_of_day}.png"
         # Load and show image
-        image = Image.open(image_path)
-        st.image(image, caption=f"{time_of_day.capitalize()} Autocorrelation Map", use_container_width=True)
+        image_auto = Image.open(image_path_auto)
+        st.image(image_auto, caption=f"{time_of_day_auto.capitalize()} Autocorrelation Map", use_container_width=True)
 
     with col3:
         st.markdown("### Data Summary")
