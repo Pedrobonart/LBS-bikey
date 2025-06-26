@@ -1,3 +1,4 @@
+from PIL import Image
 import streamlit as st
 from utils.data_loaders import load_balance_data, load_time_of_day_data
 import folium
