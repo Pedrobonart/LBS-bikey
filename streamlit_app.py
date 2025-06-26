@@ -177,7 +177,7 @@ elif page == "Analysis: Heatmap":
                 tooltip=folium.GeoJsonTooltip(fields=["NAMEK"]),
                 style_function=lambda feature: {
                 "color": "#000000",
-                "weight": 2,              
+                "weight": 0.5,              
                 "fillOpacity": 0 
     }
         ).add_to(heat_map)
