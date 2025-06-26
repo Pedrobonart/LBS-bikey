@@ -4,6 +4,7 @@ import folium
 from streamlit_folium import st_folium
 import json
 import branca.colormap as cm
+import pandas as pd
 
 def show_page():
     st.header("In-depth Analysis")
