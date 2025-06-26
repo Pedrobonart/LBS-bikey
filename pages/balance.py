@@ -139,3 +139,16 @@ def show_page():
         df_tabl = pd.DataFrame(data_tabl)
         st.markdown("### Summary by Time of Day")
         st.table(df_tabl)
+
+        st.markdown("<br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+        st.write("""
+        
+        - 1. high values surrounded by high values (HH)
+        - 2. High values surrounded by low values (HL)
+        - 3. Low values surrounded by high values (LH)
+        - 4. Low values surrounded by low values (LL)
+        - 5. Cells with no significance
+        """)
+        st.write("""
+        Values of LH and HL indicate spatial outliers, while values of HH and LL indicate clusters.
+        """)
