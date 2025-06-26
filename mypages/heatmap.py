@@ -26,7 +26,7 @@ def show_page():
         heat_data = all_points.groupby(["lat", "lon"]).size().reset_index(name="count")
         heat_points = heat_data[["lat", "lon", "count"]].values.tolist()
 
-        map_center = [48.21204, 16.37733]
+        map_center = [df["origin_lat"].mean(), df["origin_lon"].mean()]
         heat_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
 
         gdf = load_bezirke()
