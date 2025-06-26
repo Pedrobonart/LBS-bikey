@@ -40,4 +40,4 @@ elif page == "Conclusion":
     show_page()
 
 st.markdown("""---""")
-st.caption("Project by Number 4 :) • Technical University of Vienna • 2025")
+st.caption("Project by Ballardini, Bonilla, Pauly and Tockner • Technical University of Vienna • 2025")
