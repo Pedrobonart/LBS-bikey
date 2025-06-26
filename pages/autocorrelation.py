@@ -28,7 +28,7 @@ def show_page():
         a local Moran's analysis was applied, categorizing the data 
         into stations based on the values of their surrounding stations.
 
-            1. high values surrounded by high values (HH)
+            1. High values surrounded by high values (HH)
             2. High values surrounded by low values (HL)
             3. Low values surrounded by high values (LH)
             4. Low values surrounded by low values (LL)
@@ -42,5 +42,5 @@ def show_page():
             "Value": [14, 13, 4, 2, 161]
         }
         df_tabl = pd.DataFrame(data_tabl)
-        st.markdown("## Global Moran's I: 0.13")
+        st.markdown("### Global Moran's I: 0.13")
         st.table(df_tabl)
