@@ -370,7 +370,7 @@ elif page == "Analysis: Balance":
         df_tabl = pd.DataFrame(data_tabl)
         # Show it in Streamlit
         st.markdown("### Summary by Time of Day")
-        st.dataframe(df_tabl, use_container_width=True)
+        st.table(df_tabl)
 
 elif page == "Analysis: Network":
     st.header("Connectiveness of Stations")
