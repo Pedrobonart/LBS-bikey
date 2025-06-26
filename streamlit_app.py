@@ -260,6 +260,14 @@ elif page == "Analysis: Balance":
         st.write("""
         """)
         st.write("""
+        """)
+        st.write("""
+        """)
+        st.write("""
+        """)
+        st.write("""
+        """)
+        st.write("""
         Now let's take a look at the different times of day.
         """)
         st.write("""
