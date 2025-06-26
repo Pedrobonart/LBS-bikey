@@ -251,10 +251,7 @@ elif page == "Analysis: Balance":
         st.write("""
         The size of each marker reflects the **magnitude of imbalance**.
         """)
-        st.empty()
-        st.empty()
-        st.empty()
-        st.empty()
+        st.markdown("<br><br><br><br>", unsafe_allow_html=True)
         st.write("""
         Now let's take a look at the different times of day.
         """)
