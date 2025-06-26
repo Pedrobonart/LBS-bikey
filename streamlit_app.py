@@ -251,7 +251,7 @@ elif page == "Analysis: Balance":
         st.write("""
         The size of each marker reflects the **magnitude of imbalance**.
         """)
-        st.markdown("<br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+        st.markdown("<br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
         st.write("""
         Now let's take a look at the different times of day.
         """)
@@ -357,7 +357,7 @@ elif page == "Analysis: Balance":
         st.markdown(f"**🟩 More Departures:** **123 stations**")
         st.markdown(f"**🟦 More Arrivals:** **118 stations**")
 
-        st.markdown("<br><br><br><br>", unsafe_allow_html=True)
+        st.markdown("<br><br><br><br><br><br><br>", unsafe_allow_html=True)
         data_tabl = {
             "Time of Day": ["Morning", "Midday", "Evening", "Night"],
             "# Trips": [3424, 5340, 6907, 4901],
