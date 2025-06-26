@@ -319,8 +319,8 @@ elif page == "Analysis: Balance":
 
             popup_text = f"""
             <b>Station:</b> {row['station']}<br>
-            <b>Departures:</b> {dep}<br>
-            <b>Arrivals:</b> {arr}<br>
+            <b>Departures:</b> {int(dep)}<br>
+            <b>Arrivals:</b> {int(arr)}<br>
             <b>Status:</b> {status}
             """
 
