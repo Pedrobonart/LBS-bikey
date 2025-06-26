@@ -6,6 +6,7 @@ from pathlib import Path
 import folium
 from streamlit_folium import st_folium
 from folium.plugins import HeatMap
+import requests
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
@@ -151,6 +152,21 @@ elif page == "Analysis: Heatmap":
         heat_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
 
+        # Add Vienna districts GeoJSON
+        geojson_url = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:BEZIRKSGRENZEOGD&srsName=EPSG:4326&outputFormat=json"
+        geojson_data = requests.get(geojson_url).json()
+
+        folium.GeoJson(
+            geojson_data,
+            name='Vienna District Borders',
+            style_function=lambda feature: {
+                "color": "blue",
+                "weight": 2,
+                "fillOpacity": 0
+            },
+            tooltip=folium.GeoJsonTooltip(fields=["NAME"], aliases=["District:"])
+        ).add_to(heat_map)
+        
         # In Streamlit anzeigen
         st_folium(heat_map, width=700, height=500)
 
