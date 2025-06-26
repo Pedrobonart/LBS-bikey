@@ -177,13 +177,15 @@ elif page == "Analysis: Heatmap":
                 style_function=lambda feature: {
                 "color": "#000000",
                 "weight": 0.5,              
-                "fillOpacity": 0 
+                "fillOpacity": 0,
+                "opacity": 0.6
     }
         ).add_to(heat_map)
 
         
         # Heatmap layer
-        HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
+        HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}
+               ).add_to(heat_map)
 
        
         folium.LayerControl().add_to(heat_map)
