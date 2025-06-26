@@ -305,6 +305,7 @@ elif page == "Analysis: Balance":
             arr = row[arr_col]
             status = row[status_col]
             total = dep + arr
+            diff = dep - arr
 
             # Farbe und Radius festlegen
             if status == "more_arrivals":
@@ -314,7 +315,7 @@ elif page == "Analysis: Balance":
             else:
                 color = "gray"
 
-            radius = 4 + total * 0.3  # Je mehr Verkehr, desto größer
+            radius = max(4, min(12, abs(diff)/3))
 
             popup_text = f"""
             <b>Station:</b> {row['station']}<br>
