@@ -1,6 +1,6 @@
+from PIL import Image
 import streamlit as st
 import pandas as pd
-from PIL import Image
 
 def show_page():
     st.header("Capacity Analysis")
@@ -17,6 +17,7 @@ def show_page():
         """)
 
     with col2:
+        image_path
         image = Image.open("data/autocorrelation_capacity.png")
         st.image(image, caption="Autocorrelation value per station", use_container_width=True)
 
