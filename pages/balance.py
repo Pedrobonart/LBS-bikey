@@ -124,7 +124,7 @@ def show_page():
         
         time_of_day_auto = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
         # Construct image path
-        image_path_auto = f"data/autocorrelation_{time_of_day}.png"
+        image_path_auto = f"data/autocorrelation_{time_of_day_auto}.png"
         # Load and show image
         image_auto = Image.open(image_path_auto)
         st.image(image_auto, caption=f"{time_of_day_auto.capitalize()} Autocorrelation Map", use_container_width=True)
