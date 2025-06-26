@@ -2,6 +2,7 @@ import streamlit as st
 from utils.data_loaders import get_stations_data, load_bike_trips
 import folium
 from streamlit_folium import st_folium
+import pandas as pd
 
 def show_page():
     stations_df = get_stations_data()
