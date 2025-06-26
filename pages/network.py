@@ -11,7 +11,8 @@ def show_page():
     with col1:
         st.markdown("### Networks")
         st.write("""
-        This map shows how connected each station is, with the size indicating the degree of centrality
+        This map shows how connected each station is, with the dot size indicating the degree of centrality. 
+        Clicking on a dot shows the number of stations connected to that station in both directions.
         """)
 
     with col2:
@@ -57,4 +58,4 @@ def show_page():
     with col3:
         st.markdown("### Data Summary")
         st.metric("Station with the most Centrality", 
-                  network_df.loc[network_df["degree_centrality"].abs().idxmax(), "station"])
+                  "Karlsplatz")
