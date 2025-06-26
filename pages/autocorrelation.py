@@ -42,5 +42,5 @@ def show_page():
             "Value": [14, 13, 4, 2, 161]
         }
         df_tabl = pd.DataFrame(data_tabl)
-        st.markdown("### Summary by Time of Day")
+        st.markdown("## Global Moran's I: 0.13")
         st.table(df_tabl)
