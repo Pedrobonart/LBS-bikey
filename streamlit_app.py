@@ -358,6 +358,17 @@ elif page == "Analysis: Balance":
         st.markdown(f"**🟩 More Departures:** **123 stations**")
         st.markdown(f"**🟦 More Arrivals:** **118 stations**")
 
+        st.markdown("<br><br><br>", unsafe_allow_html=True)
+        data_tabl = {
+            "Time of Day": ["Morning", "Midday", "Evening", "Night"],
+            "Number of Trips": [3424, 5340, 6907, 4901],
+            "Mean Duration (min)": [30.8, 35.2, 34.2, 28.5]
+        }
+        df_tabl = pd.DataFrame(data_tabl)
+        # Show it in Streamlit
+        st.markdown("### Summary by Time of Day")
+        st.dataframe(df_tabl, use_container_width=True)
+
 elif page == "Analysis: Network":
     st.header("Connectiveness of Stations")
     col1, col2, col3 = st.columns([1.5, 3, 1])
