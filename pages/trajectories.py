@@ -15,7 +15,7 @@ def show_page():
     with col1:
         st.markdown("### Movement Flow Map")
         st.write("""
-        This interactive map shows **aggregated nighttime bike trips** in Vienna.  
+        This interactive map shows **aggregated bike trips** in Vienna.  
         Each line represents a movement from an origin to a destination station.
         """)
         st.markdown("### Visual Encoding")
@@ -27,7 +27,11 @@ def show_page():
         st.write("""
         - Identify long vs. short duration trips  
         - Spot frequently used corridors  
-        - Understand spatial usage patterns at night
+        - Understand spatial usage patterns
+        """)
+        st.write("""
+        Trip data is disaggregated into four daily time windows, revealing strong commuting flows and recreational cycling trends. 
+        Morning and evening show pronounced radial patterns aligned with work and residential zones, while midday and night reflect more localized and recreational travel.
         """)
 
     with col2:
