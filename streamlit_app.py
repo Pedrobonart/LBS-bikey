@@ -153,18 +153,18 @@ elif page == "Analysis: Heatmap":
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
 
         # Add Vienna districts GeoJSON
-        geojson_url = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:BEZIRKSGRENZEOGD&srsName=EPSG:4326&outputFormat=json"
+        geojson_url = "data/BEZIRKSGRENZEOGD.json"
         geojson_data = requests.get(geojson_url).json()
 
         folium.GeoJson(
             geojson_data,
             name='Vienna District Borders',
             style_function=lambda feature: {
-                "color": "blue",
-                "weight": 2,
+                "color": "black",
+                "weight": 1,
                 "fillOpacity": 0
             },
-            tooltip=folium.GeoJsonTooltip(fields=["NAME"], aliases=["District:"])
+            tooltip=folium.GeoJsonTooltip(fields=["BEZNR"], aliases=["District:"])
         ).add_to(heat_map)
         
         # In Streamlit anzeigen
