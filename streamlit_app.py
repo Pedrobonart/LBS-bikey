@@ -173,12 +173,12 @@ elif page == "Analysis: Heatmap":
         folium.GeoJson(
                 gdf,
                 name="Vienna Districts",
-                tooltip=folium.GeoJsonTooltip(fields=["NAMEK"]),
+                tooltip=folium.GeoJsonTooltip(fields=["NAMEK"], aliases=["District Name:"]),
                 style_function=lambda feature: {
                 "color": "#000000",
                 "weight": 0.5,              
                 "fillOpacity": 0,
-                "opacity": 0.6
+                "opacity": 0.35
     }
         ).add_to(heat_map)
 
