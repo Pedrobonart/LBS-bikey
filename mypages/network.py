@@ -59,3 +59,6 @@ def show_page():
         st.markdown("### Data Summary")
         st.metric("Station with the most Centrality", 
                   "Karlsplatz")
+        st. write("""
+        ...followed by Museumsquartier, Praterstern and Hauptbahnhof (Central station).
+        """)
