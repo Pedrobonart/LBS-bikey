@@ -35,6 +35,14 @@ def show_page():
         This interactive collection of maps provides interesting insights to different patterns in the different time windows.
         """)
 
+        st.markdown("<br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+        st.write("""
+        Based on the balance map, are there measurable correlations between stations and their number of arrivals and departures? To answer this question, global and local Moran's I were calculated based on departures minus arrivals.
+        """)
+        st.write("""
+        Global Moran's I provides a measure of the entire dataset ranging from -1 to 1, where -1 indicates dispersion and 1 indicates full clustering. To understand how this is reflected spatially at each station, a local Moran's analysis was applied, categorizing the data into stations based on the values of their surrounding stations
+        """)
+
     with col2:
         balance_df = load_balance_data()
         balance_df["diff"] = balance_df["dep_count"] - balance_df["arr_count"]
