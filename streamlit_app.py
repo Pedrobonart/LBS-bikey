@@ -154,11 +154,13 @@ elif page == "Analysis: Heatmap":
         st_folium(heat_map, width=700, height=500)
 
     with col3:
-        st.markdown("### More Info")
+        st.markdown("### More density info")
         st.write("""
-        sources, images and stuff
+        In the Central area inside the "Gürtel" (approx. 33 km²), there are 68 stations;
+        while there are 186 stations in the peripheral area (approx. 381.6 km²).
         """)
-
+        st.metric("Avg Stations per km^2 in city center", f"2.06")
+        st.metric("Avg Stations per km^2 in city center", f"0.49")
 
 elif page == "Analysis: Trajectories":
     st.header("In-depth Analysis")
