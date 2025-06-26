@@ -21,7 +21,7 @@ def show_page():
         st.image(image, caption="Autocorrelation value per station", use_container_width=True)
 
     with col3:
-        st.markdown("### Explenation")
+        st.markdown("### Explanation")
         st.write("""
         Global Moran's I provides a measure of the entire dataset ranging from -1 to 1, 
         where -1 indicates dispersion and 1 indicates full clustering. 
@@ -40,7 +40,7 @@ def show_page():
         
         data_tabl = {
             "Label": ["HH", "LL", "HL", "LH", "Non-Significant"],
-            "# of stations": [14, 13, 4, 2, 161]
+            "Amount of stations": [14, 13, 4, 2, 161]
         }
         df_tabl = pd.DataFrame(data_tabl)
         st.markdown("### Global Moran's I: 0.13")
