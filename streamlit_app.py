@@ -250,19 +250,24 @@ elif page == "Analysis: Balance":
         """)
         st.write("""
         The size of each marker reflects the **magnitude of imbalance**.
-
-
-
-
-
+        """)
+        st.write("""
+        """)
+        st.write("""
+        """)
+        st.write("""
+        """)
+        st.write("""
         """)
         st.write("""
         Now let's take a look at the different times of day.
+        """)
+        st.write("""
         For this part of the analysis, **4 time windows** are defined:
-        Morning: **7:00 - 11:00**
-        Midday: **11:00 - 16:00**
-        Evening: **16:00 - 20:00**
-        Night: **20:00 - 7:00**
+        - Morning: **7:00 - 11:00**
+        - Midday: **11:00 - 16:00**
+        - Evening: **16:00 - 20:00**
+        - Night: **20:00 - 7:00**
         """)
 
     with col2:
