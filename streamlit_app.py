@@ -171,7 +171,7 @@ elif page == "Analysis: Heatmap":
                 tooltip=folium.GeoJsonTooltip(fields=["NAMEK"])
         ).add_to(m)
 
-        folium.LayerControl().add_to(m)
+        folium.LayerControl().add_to(heat_map)
 
         # In Streamlit anzeigen
         st_folium(heat_map, width=700, height=500)
