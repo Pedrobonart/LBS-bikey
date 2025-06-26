@@ -45,7 +45,14 @@ def show_page():
         avg_lon = sum([lon for _, lon in origins]) / len(origins)
 
         image = Image.open("data/midday_traj.png")
-        st.image(image, caption="Bike Usage Trajectories", use_conatainer_width=True)
+        st.image(image, caption="Bike Usage Trajectories", use_container_width=True)
+
+        time_of_day = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
+        # Construct image path
+        image_path = f"data/{time_of_day}_traj.png"
+        # Load and show image
+        image = Image.open(image_path)
+        st.image(image, caption=f"{time_of_day.capitalize()} Trajectory Map", use_container_width=True)
     
     with col3:
         st.markdown("### Notes")
