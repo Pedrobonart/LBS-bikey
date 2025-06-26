@@ -1,3 +1,4 @@
+from PIL import Image
 import streamlit as st
 from utils.data_loaders import load_trajectories_data
 import folium
@@ -5,7 +6,7 @@ from streamlit_folium import st_folium
 import json
 import branca.colormap as cm
 import pandas as pd
-from PIL import Image
+
 
 def show_page():
     st.header("In-depth Analysis")
