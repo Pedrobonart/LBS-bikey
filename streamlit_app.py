@@ -148,6 +148,10 @@ elif page == "Analysis: Heatmap":
         heat_data = all_points.groupby(["lat", "lon"]).size().reset_index(name="count")
         heat_points = heat_data[["lat", "lon", "count"]].values.tolist()
 
+        #Create leaflet map
+        map_center = [48.21204, 16.37733]
+        heat_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
+        
          # District visualization
             # Read the CSV
         df = pd.read_csv("data/BEZIRKSGRENZEOGD.csv")
@@ -178,9 +182,7 @@ elif page == "Analysis: Heatmap":
         ).add_to(heat_map)
 
         
-        # Heatmap erzeugen
-        map_center = [48.21204, 16.37733]
-        heat_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
+        # Heatmap layer
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
 
        
