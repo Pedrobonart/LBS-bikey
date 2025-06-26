@@ -8,6 +8,7 @@ def show_page():
     stations_df = get_stations_data()
     stations_df = stations_df[~stations_df["place_name"].str.startswith("BIKE")]
 
+    st.header("Introduction")
     st.markdown(
         """
         <div style="background-color:#f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 20px">
