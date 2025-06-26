@@ -5,6 +5,7 @@ from streamlit_folium import st_folium
 import json
 import branca.colormap as cm
 import pandas as pd
+from PIL import Image
 
 def show_page():
     st.header("In-depth Analysis")
@@ -42,31 +43,9 @@ def show_page():
         avg_lat = sum([lat for lat, _ in origins]) / len(origins)
         avg_lon = sum([lon for _, lon in origins]) / len(origins)
 
-        m = folium.Map(location=[avg_lat, avg_lon], zoom_start=12)
-
-        for feature in geojson_data["features"]:
-            coords = feature["geometry"]["coordinates"]
-            props = feature["properties"]
-            duration = props["avg_duration_min"]
-            count = props["trip_count"]
-            color = colormap(duration)
-
-            popup_text = f"""
-            <b>Trips:</b> {count}<br>
-            <b>Avg Duration:</b> {duration:.2f} min
-            """
-
-            folium.PolyLine(
-                locations=[(lat, lon) for lon, lat in coords],
-                color=color,
-                weight=0.7 + count * 0.8,
-                opacity=0.7,
-                popup=folium.Popup(popup_text, max_width=300)
-            ).add_to(m)
-
-        colormap.add_to(m)
-        st_folium(m, width=700, height=500)
-
+        image = Image.open("data/middy_traj.png")
+        st.image(image, caption="Bike Usage Trajectories", use_column_width=True)
+    
     with col3:
         st.markdown("### Notes")
         st.write("""
