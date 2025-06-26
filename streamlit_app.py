@@ -289,7 +289,6 @@ elif page == "Analysis: Balance":
 
         st_folium(balance_map, width=500, height=500)
 
-        st.markdown("### Temporal Disbalance Map")
         df_temp = pd.read_csv("data/station_arr_dep_time (1).csv")
         time_of_day = st.selectbox("Select time of day", ["morning", "midday", "evening", "night"])
 
