@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 
 def show_page():
-    st.header("Autocorrelation Analysis")
-    st.write("Autocorrelation analysis page placeholder. Add your autocorrelation visualizations and analysis here.")
+    st.header("Capacity Analysis")
+    st.write("Autocorrelation analysis for the capacity of the stations in the system.")
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col1:
@@ -16,8 +16,8 @@ def show_page():
         """)
 
     with col2:
-        # You can add visualizations or more content here for col2
-        pass
+        image = Image.open("data/autocorrelation_capacity.png")
+        st.image(image, caption="Autocorrelation value per station", use_container_width=True)
 
     with col3:
         st.markdown("### Explenation")
