@@ -11,17 +11,9 @@ def get_stations_data():
     DATA_FILENAME = Path(__file__).parent.parent / 'data/bike_tracking_stations.csv'
     return pd.read_csv(DATA_FILENAME)
 
-@st.cache_data
 def load_bike_trips():
-    # Resolve absolute path regardless of execution context
-    base_path = Path(__file__).resolve().parent.parent
-    data_file = base_path / "data/bike_journeys_noOutliers.csv"
+    return pd.read_csv("data/bike_journeys_noOutliers.csv")
 
-    if not data_file.exists():
-        st.error(f"Data file not found at {data_file}")
-        return pd.DataFrame()  # or raise an error
-    
-    return pd.read_csv(data_file)
 
 @st.cache_data
 def load_bezirke():
