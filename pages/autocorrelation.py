@@ -17,7 +17,6 @@ def show_page():
         """)
 
     with col2:
-        image_path
         image = Image.open("data/autocorrelation_capacity.png")
         st.image(image, caption="Autocorrelation value per station", use_container_width=True)
 
