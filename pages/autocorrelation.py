@@ -39,7 +39,7 @@ def show_page():
         
         data_tabl = {
             "Label": ["HH", "LL", "HL", "LH", "Non-Significant"],
-            "Value": [14, 13, 4, 2, 161]
+            "# of stations": [14, 13, 4, 2, 161]
         }
         df_tabl = pd.DataFrame(data_tabl)
         st.markdown("### Global Moran's I: 0.13")
