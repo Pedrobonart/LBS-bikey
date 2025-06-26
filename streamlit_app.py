@@ -148,7 +148,7 @@ elif page == "Analysis: Heatmap":
         # Heatmap erzeugen
         map_center = [48.21204, 16.37733]
         heat_map = folium.Map(location=map_center, zoom_start=11, min_zoom=10)
-        HeatMap(heat_points, radius=15, blur=20, max_zoom=1, gradient={0.0: '#ffd43b', 0.5:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
+        HeatMap(heat_points, radius=15, blur=20, max_zoom=1, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
 
         # In Streamlit anzeigen
         st_folium(heat_map, width=500, height=500)
