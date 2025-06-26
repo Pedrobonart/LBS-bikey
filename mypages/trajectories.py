@@ -31,8 +31,7 @@ def show_page():
         """)
         st.markdown("<br><br><br>", unsafe_allow_html=True)
         st.write("""
-        Again, trip data is disaggregated into four daily time windows. revealing strong commuting flows and recreational cycling trends. 
-        Morning and evening show pronounced radial patterns aligned with work and residential zones, while midday and night reflect more localized and recreational travel.
+        Again, trip data is disaggregated into four daily time windows, explore it by selecting. 
         """)
 
     with col2:
@@ -62,8 +61,7 @@ def show_page():
     with col3:
         st.markdown("### Notes")
         st.write("""
-        This dataset only includes trips recorded during **nighttime hours** (e.g., 10 PM–6 AM).  
-        It has been **pre-aggregated** by origin/destination coordinates.
+        This dataset only includes all trips, aggregated on routes.
         """)
         st.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
         st.write("""
