@@ -126,7 +126,7 @@ elif page == "Analysis: Heatmap":
     with col1:
         st.markdown("### About the Project")
         st.write("""
-        This project is about rental bikes in Vienna.... THIS IS A TEMPLATE SECTION!!! 
+        This interactive heatmap gives a good overview of the density of rental stations in Vienna.  
         """)
 
     with col2:
@@ -151,7 +151,7 @@ elif page == "Analysis: Heatmap":
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'}).add_to(heat_map)
 
         # In Streamlit anzeigen
-        st_folium(heat_map, width=500, height=500)
+        st_folium(heat_map, width=700, height=500)
 
     with col3:
         st.markdown("### More Info")
