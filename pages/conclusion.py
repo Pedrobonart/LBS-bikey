@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 def show_page():
     st.header("Conclusion & Recommendations")
