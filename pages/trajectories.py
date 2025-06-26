@@ -45,7 +45,7 @@ def show_page():
         avg_lon = sum([lon for _, lon in origins]) / len(origins)
 
         image = Image.open("data/midday_traj.png")
-        st.image(image, caption="Bike Usage Trajectories", use_column_width=True)
+        st.image(image, caption="Bike Usage Trajectories", use_conatainer_width=True)
     
     with col3:
         st.markdown("### Notes")
