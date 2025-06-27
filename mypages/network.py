@@ -56,7 +56,8 @@ def show_page():
         st_folium(network_map, width=700, height=500)
 
     with col3:
-        st.markdown("### Data Summary")
+        st.markdown("### Summary")
+        st.markdown("<br><br><br><br>", unsafe_allow_html=True)
         st.metric("Station with the most Centrality", 
                   "Karlsplatz")
         st. write("""
