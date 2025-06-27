@@ -14,6 +14,7 @@ def show_page():
             Global and local Moran's I were then calculated to determine if there is a spatial 
             relationship between stations with high and low capacities.
         """)
+        st.markdown("<br><br><br>", unsafe_allow_html=True)
         st.write("""
         High-high clusters can be observed in the first 1st and 4th district, while there are low-low clusters
         f.ex. between the Ring and the Gürtel, giving further interesting insights to the system.
