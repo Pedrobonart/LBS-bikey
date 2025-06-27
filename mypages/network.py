@@ -57,7 +57,7 @@ def show_page():
 
     with col3:
         st.markdown("### Summary")
-        st.markdown("<br><br><br><br>", unsafe_allow_html=True)
+        st.markdown("<br><br>", unsafe_allow_html=True)
         st.metric("Station with the most Centrality", 
                   "Karlsplatz")
         st. write("""
