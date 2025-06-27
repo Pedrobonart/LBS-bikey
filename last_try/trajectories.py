@@ -61,7 +61,7 @@ def show_page():
     with col3:
         st.markdown("### Notes")
         st.write("""
-        This dataset only includes all trips, aggregated on the specific routes.
+        This dataset only includes all trips, aggregated on the specific origin-destination routes.
         """)
         st.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
         st.write("""
