@@ -149,7 +149,7 @@ def show_page():
         st.markdown("### Summary by Time of Day")
         st.table(df_tabl)
 
-        st.markdown("<br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+        st.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
         st.write("""
         
         1. high values surrounded by high values (HH)
