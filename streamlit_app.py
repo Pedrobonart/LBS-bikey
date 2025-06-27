@@ -30,7 +30,7 @@ elif page == "Analysis: Balance":
     from mypages.balance import show_page
     show_page()
 elif page == "Analysis: Trajectories":
-    from pages.trajectories import show_page
+    from mypages.trajectories import show_page
     show_page()
 elif page == "Analysis: Autocorrelation":
     from mypages.autocorrelation import show_page
