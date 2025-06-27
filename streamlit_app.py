@@ -18,25 +18,25 @@ page = st.sidebar.radio("Go to", [
 ])
 
 if page == "Introduction":
-    from mypages.introduction import show_page
+    from last_try.introduction import show_page
     show_page()
 elif page == "Analysis: Heatmap":
-    from mypages.heatmap import show_page
+    from last_try.heatmap import show_page
     show_page()
 elif page == "Analysis: Network":
-    from mypages.network import show_page
+    from last_try.network import show_page
     show_page()
 elif page == "Analysis: Balance":
-    from mypages.balance import show_page
+    from last_try.balance import show_page
     show_page()
 elif page == "Analysis: Trajectories":
-    from mypages.trajectories import show_page
+    from last_try.trajectories import show_page
     show_page()
 elif page == "Analysis: Autocorrelation":
-    from mypages.autocorrelation import show_page
+    from last_try.autocorrelation import show_page
     show_page()
 elif page == "Conclusion":
-    from mypages.conclusion import show_page
+    from last_try.conclusion import show_page
     show_page()
 
 st.markdown("""---""")
