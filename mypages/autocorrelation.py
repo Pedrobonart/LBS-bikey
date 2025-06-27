@@ -4,7 +4,6 @@ import pandas as pd
 
 def show_page():
     st.header("Capacity Analysis")
-    st.write("Autocorrelation analysis for the capacity of the stations in the system.")
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col1:
@@ -14,6 +13,10 @@ def show_page():
             The average occupancy percentage per station was calculated for the entire timeframe. 
             Global and local Moran's I were then calculated to determine if there is a spatial 
             relationship between stations with high and low capacities.
+        """)
+        st.write("""
+        High-high clusters can be observed in the first 1st and 4th district, while there are low-low clusters
+        f.ex. between the Ring and the Gürtel, giving further interesting insights to the system.
         """)
 
     with col2:
@@ -40,7 +43,7 @@ def show_page():
         
         data_tabl = {
             "Label": ["HH", "LL", "HL", "LH", "Non-Significant"],
-            "Amount of stations": [14, 13, 4, 2, 161]
+            "Stations": [14, 13, 4, 2, 161]
         }
         df_tabl = pd.DataFrame(data_tabl)
         st.markdown("### Global Moran's I: 0.13")
