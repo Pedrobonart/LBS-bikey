@@ -43,7 +43,7 @@ def show_page():
         ).add_to(heat_map)
 
         HeatMap(heat_points, radius=15, blur=20, max_zoom=1, opacity=0.8, gradient={
-            0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#d62b2b'
+            0.0: '#ffffff', 0.333:'#ffd43b', 0.6667:'#ed6d0c', 1:'#a61c1c'
         }).add_to(heat_map)
 
         folium.LayerControl().add_to(heat_map)
