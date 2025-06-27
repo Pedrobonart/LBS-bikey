@@ -61,7 +61,7 @@ def show_page():
     with col3:
         st.markdown("### Notes")
         st.write("""
-        This dataset only includes all trips, aggregated on routes.
+        This dataset only includes all trips, aggregated on the specific routes.
         """)
         st.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
         st.write("""
@@ -70,8 +70,8 @@ def show_page():
         """)
         data_tab = {
             "Time of Day": ["Morning", "Midday", "Evening", "Night"],
-            "Amount of Trips": [3424, 5340, 6907, 4901],
-            "Mean Duration (min)": [30.77, 35.23, 34.18, 28.54]
+            "Trips": [3424, 5340, 6907, 4901],
+            "Mean Duration": [30.77, 35.23, 34.18, 28.54]
         }
         df_tab = pd.DataFrame(data_tab)
         st.markdown("### Summary by Time of Day")
