@@ -3,7 +3,7 @@ import streamlit as st
 def show_page():
     st.title("Conclusion")
     st.markdown("""
-    ### 🚲 Key Takeaways from Our Analysis
+    ### Key Takeaways from our Analysis 🚲
 
     - In total, Vienna's Bike-Sharing performs well and is well-embedded in the infrastructure system and the allday life. However, there is still room for improvement. 
     
